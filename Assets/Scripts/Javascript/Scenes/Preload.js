@@ -27,10 +27,16 @@ Application.Preload.prototype =
     	this.game.load.image('pauseMenu', 'Assets/Graphics/PauseMenu/pauseMenu_150_300.png');
 		this.game.load.audio('bossGrunt', 'Assets/Audio/SFX/bossGrunt.wav');
 		*/
-
 		/*********************************** 
 	    	chargement des assets
 	    ************************************/
+
+	    //Chare Loading
+	    this.game.load.spritesheet('Yama','Assets/Graphics/Chara/Yama_98_96.png',96,96,16);
+
+	    //Background Loading
+	    this.game.load.image('City1','Assets/Graphics/Background/CityTest1.png');
+	    this.game.load.image('City2','Assets/Graphics/Background/CityTest2.png');
 
 	},
 
@@ -39,6 +45,6 @@ Application.Preload.prototype =
   		console.log("create Preload");
 
   		// go to another State
-		//this.state.start("Title");
+		this.state.start("LevelTest");
 	}
 }
