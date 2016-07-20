@@ -6,7 +6,11 @@ Application.LevelTest.prototype = {
 		this.city1 = Application.Game.add.sprite(0,-0,'City1');
 		this.city2 = Application.Game.add.sprite(1000,-0,'City2');
 
-		var Player = new Yama(Application.Game,50,120);	
+		var Player = new Yama(Application.Game,150,300);
+		var Red = new Girl(Application.Game,500,300,"Red");
+		var Blue = new Girl(Application.Game,800,250,"Blue");
+		var Green = new Girl(Application.Game,1200,350,"Green");
+
 	},
 
 	update : function()

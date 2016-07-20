@@ -7,7 +7,7 @@ function Yama(_game,_x,_y)
   ******************************/
 
   // create a Phaser Sprite Object
-  var _self = _game.add.sprite(96, 96, "Yama");
+  var _self = _game.add.sprite(_x, _y, "Yama");
       _self.animations.add('moveDown', [0,1,2,3]);
       _self.animations.add('moveLeft', [4,5,6,7]);
       _self.animations.add('moveRight', [8,9,10,11]);

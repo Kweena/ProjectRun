@@ -34,6 +34,11 @@ Application.Preload.prototype =
 	    //Chare Loading
 	    this.game.load.spritesheet('Yama','Assets/Graphics/Chara/Yama_98_96.png',96,96,16);
 
+	    //Chara Girl
+	    this.game.load.image('Red','Assets/Graphics/Chara/GirlRed_60_60.PNG');
+	    this.game.load.image('Blue','Assets/Graphics/Chara/GirlBlue_60_60.PNG');
+	    this.game.load.image('Green','Assets/Graphics/Chara/GirlGreen_60_60.PNG');
+
 	    //Background Loading
 	    this.game.load.image('City1','Assets/Graphics/Background/CityTest1.png');
 	    this.game.load.image('City2','Assets/Graphics/Background/CityTest2.png');
