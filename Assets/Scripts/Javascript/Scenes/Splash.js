@@ -9,7 +9,7 @@ Application.Splash.prototype =
 	preload: function()
 	{
 		console.log("Preload Splash")        
-        this.load.image("logo","Assets/Graphics/Preloader/logo_technobel.png");
+        this.load.image("logo","Assets/Graphics/Preloader/logo_yamete.jpg");
         this.load.image("loading","Assets/Graphics/Preloader/preloader-bar.png");  
 
 	},

@@ -7,9 +7,9 @@ Application.LevelTest.prototype = {
 		this.city2 = Application.Game.add.sprite(1000,-0,'City2');
 
 		var Player = new Yama(Application.Game,150,300);
-		var Red = new Girl(Application.Game,500,300,"Red");
-		var Blue = new Girl(Application.Game,800,250,"Blue");
-		var Green = new Girl(Application.Game,1200,350,"Green");
+		var Red = new Girl(Application.Game,500,300,"Red",Math.random() * (2 - 0.5) + 0.5);
+		var Blue = new Girl(Application.Game,800,250,"Blue",Math.random() * (2 - 0.5) + 0.5);
+		var Green = new Girl(Application.Game,1200,350,"Green",Math.random() * (2 - 0.5) + 0.5);
 
 	},
 

@@ -1,4 +1,4 @@
-function Girl(_game,_x,_y,_color)
+function Girl(_game,_x,_y,_color,_speed)
 {
   
 
@@ -10,7 +10,7 @@ function Girl(_game,_x,_y,_color)
   var _self = _game.add.sprite(_x, _y, _color);
       _self.anchor.setTo(0.5,0.5);
 
-  var speed = 0.5;
+  var speed = _speed;
 
 
   /*****************************
@@ -21,6 +21,12 @@ function Girl(_game,_x,_y,_color)
   _self.update = function()
   {
     _self.position.x -= speed;
+
+    if (_self.position.x + _self.width < 0) 
+    {
+      _self.position.x = Math.random() * (1000 - 645) + 645;
+      _self.position.y = Math.random() * (350 - 250) + 250 ;
+    }
         
   }
 
