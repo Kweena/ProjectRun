@@ -30,8 +30,11 @@ Application.Preload.prototype =
 		/*********************************** 
 	    	chargement des assets
 	    ************************************/
+	    //Title Load
+	    this.game.load.image('Title','Assets/Graphics/Background/TitleBackground.png');
 
-	    //Chare Loading
+
+	    //Chara Loading
 	    this.game.load.spritesheet('Yama','Assets/Graphics/Chara/Yama_98_96.png',96,96,16);
 
 	    //Chara Girl
@@ -50,6 +53,6 @@ Application.Preload.prototype =
   		console.log("create Preload");
 
   		// go to another State
-		this.state.start("LevelTest");
+		this.state.start("TitleScene");
 	}
 }
