@@ -6,7 +6,7 @@ var Application = {
 	},
 	Game : null,
 	Juicy : null,
-	debugMode: false,
+	debugMode: true,
 	godMode: false,
 	Player: null	
 }
