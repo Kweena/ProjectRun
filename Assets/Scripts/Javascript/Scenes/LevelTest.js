@@ -32,7 +32,7 @@ Application.LevelTest.prototype = {
 		for (var i = 0; i < this.Ennemies.length; i++) 
 		{
 			Application.Game.physics.arcade.collide(this.Player, this.Ennemies[i], this.collisionPlayerEnnemies);
-			Application.Game.physics.arcade.collide(this.Player.Tentacle, this.Ennemies[i], killEnnemies);
+			Application.Game.physics.arcade.collide(this.Player.Tentacle, this.Ennemies[i], this.killEnnemies);
 		}
 
 	},
