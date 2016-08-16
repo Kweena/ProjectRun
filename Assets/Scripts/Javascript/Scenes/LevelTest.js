@@ -11,7 +11,11 @@ Application.LevelTest.prototype = {
 		var Red = new Girl(Application.Game,500,300,"Red",Math.random() * (2 - 0.5) + 0.5);
 		var Blue = new Girl(Application.Game,800,250,"Blue",Math.random() * (2 - 0.5) + 0.5);
 		var Green = new Girl(Application.Game,1200,350,"Green",Math.random() * (2 - 0.5) + 0.5);
-		this.Ennemies = [Red, Blue, Green];
+
+		this.Ennemies = Application.Game.add.physicsGroup();
+		this.Ennemies.add(Red);
+		this.Ennemies.add(Blue);
+		this.Ennemies.add(Green);
 
 	},
 
@@ -28,12 +32,8 @@ Application.LevelTest.prototype = {
 			this.city2.position.x = 1000;
 		}
 
-		// TODO GROUP COLLISION
-		for (var i = 0; i < this.Ennemies.length; i++) 
-		{
-			Application.Game.physics.arcade.collide(this.Player, this.Ennemies[i], this.collisionPlayerEnnemies);
-			Application.Game.physics.arcade.collide(this.Player.Tentacle, this.Ennemies[i], this.killEnnemies);
-		}
+		Application.Game.physics.arcade.collide(this.Player, this.Ennemies, this.collisionPlayerEnnemies);
+		Application.Game.physics.arcade.collide(this.Player.Tentacle, this.Ennemies, this.killEnnemies);
 
 	},
 
