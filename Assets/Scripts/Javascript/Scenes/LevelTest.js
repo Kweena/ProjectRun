@@ -13,6 +13,8 @@ Application.LevelTest.prototype = {
 		var Green = new Girl(Application.Game,1200,350,"Green",Math.random() * (2 - 0.5) + 0.5);
 		this.Ennemies = [Red, Blue, Green];
 
+		this.PMoon = new ParticuleMoon(Application.Game,500,250,Math.random() * (2 - 0.5) + 0.5)
+
 	},
 
 	update : function()
