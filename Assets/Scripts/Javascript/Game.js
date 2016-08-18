@@ -7,7 +7,9 @@ var Application = {
 	Game : null,
 	Juicy : null,
 	debugMode: true,
+	debugTouch: true,
 	godMode: false,
-	touchEnabled: true,
+	//Change to true to force touch for mobile (default : false)
+	touchEnabled: false,
 	Player: null	
 }

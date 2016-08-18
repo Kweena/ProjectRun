@@ -49,6 +49,33 @@ Application.Preload.prototype =
 	    this.game.load.image('City1','Assets/Graphics/Background/CityTest1.png');
 	    this.game.load.image('City2','Assets/Graphics/Background/CityTest2.png');
 
+
+	    //Debug Loading
+	    this.game.load.image('DebugUp','Assets/Graphics/Debug/DebugUp.png');
+	    this.game.load.image('DebugDown','Assets/Graphics/Debug/DebugDown.png');
+	    this.game.load.image('DebugAttack','Assets/Graphics/Debug/DebugAttack.png');
+
+	    /*********************************** 
+	    			Touch Gestion
+	    ************************************/
+
+	    
+
+	    if (Application.touchEnabled == false) 
+	    {
+	    	console.log(Application)
+	    	if (!Application.Game.device.desktop) 
+	    	{
+	    		Application.touchEnabled = true
+	    	};
+	    }
+
+
+	    /*********************************** 
+	    			Load Parameter
+	    ************************************/
+
+
 	},
 
   	create: function()

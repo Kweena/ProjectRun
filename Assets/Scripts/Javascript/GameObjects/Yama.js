@@ -47,23 +47,30 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
 
     if (Application.touchEnabled) 
     {
-      _self.buttonUp = Application.Game.add.button(0, 0, "", null, this);
+      var buttonAsset = ["","",""];
+      
+      if (Application.debugTouch) 
+      {
+        buttonAsset = ["DebugUp","DebugDown","DebugAttack"];
+      }
+
+      _self.buttonUp = Application.Game.add.button(0, 0, buttonAsset[0], null, this);
       _self.buttonUp.width = Application.Game.width * 0.5;
-      _self.buttonUp.height = _self.y;
+      _self.buttonUp.height = _self.y - 20;
       _self.buttonUp.events.onInputOver.add(function(){_self.touchInput.up = true;});
       _self.buttonUp.events.onInputOut.add(function(){_self.touchInput.up = false; _self.touchInput.down = false;});
       _self.buttonUp.events.onInputDown.add(function(){_self.touchInput.up = true;});
       _self.buttonUp.events.onInputUp.add(function(){_self.touchInput.up = false; _self.touchInput.down = false;});
 
-      _self.buttonDown = Application.Game.add.button(0, _self.y, "", null, this);
+      _self.buttonDown = Application.Game.add.button(0, _self.y + 20 , buttonAsset[1], null, this);
       _self.buttonDown.width = Application.Game.width * 0.5;
-      _self.buttonDown.height = Application.Game.height - _self.y;
+      _self.buttonDown.height = Application.Game.height - (_self.y + 20);
       _self.buttonDown.events.onInputOver.add(function(){_self.touchInput.down = true;});
       _self.buttonDown.events.onInputOut.add(function(){_self.touchInput.up = false; _self.touchInput.down = false;});
       _self.buttonDown.events.onInputDown.add(function(){_self.touchInput.down = true;});
       _self.buttonDown.events.onInputUp.add(function(){_self.touchInput.up = false; _self.touchInput.down = false;});
 
-      _self.buttonAttack = Application.Game.add.button(Application.Game.width * 0.5, 0, "", null, this);
+      _self.buttonAttack = Application.Game.add.button(Application.Game.width * 0.5, 0, buttonAsset[2], null, this);
       _self.buttonAttack.width = Application.Game.width * 0.5;
       _self.buttonAttack.height = Application.Game.height;
       _self.buttonAttack.events.onInputOver.add(function(){_self.touchInput.attack = true;});
@@ -101,11 +108,11 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
       }
       else if (_self.Weapon1 != null && _game.input.keyboard.isDown(_self.keys.weapon1)) 
       {
-        _self.UseWeapon1();
+        _self.Weapon1.Use();
       }
       else if (_self.Weapon2 != null && _game.input.keyboard.isDown(_self.keys.weapon2)) 
       {
-        _self.UseWeapon2();
+        _self.Weapon2.Use();
       }
     }
   
@@ -149,14 +156,6 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
       tween.onComplete.add(function () {_self.attackAnimation = false;}, this);
 
 
-  }
-  _self.UseWeapon1 = function()
-  {   
-      console.log('Weapon1');
-  }
-  _self.UseWeapon2 = function()
-  {   
-      console.log('Weapon2');
   }
 
   _self.Hitted = function()
