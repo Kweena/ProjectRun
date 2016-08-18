@@ -19,6 +19,8 @@ Application.LevelTest.prototype = {
 	
 
 
+		this.PMoon = new ParticuleMoon(Application.Game,500,250,Math.random() * (2 - 0.5) + 0.5)
+
 	},
 
 	update : function()
