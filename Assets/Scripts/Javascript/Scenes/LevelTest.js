@@ -16,6 +16,8 @@ Application.LevelTest.prototype = {
 		this.Ennemies.add(Red);
 		this.Ennemies.add(Blue);
 		this.Ennemies.add(Green);
+	
+
 
 	},
 
@@ -39,7 +41,7 @@ Application.LevelTest.prototype = {
 
 	render : function()
 	{
-		
+
 	},
 
 	// CALLBACKS

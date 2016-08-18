@@ -8,5 +8,6 @@ var Application = {
 	Juicy : null,
 	debugMode: true,
 	godMode: false,
+	touchEnabled: true,
 	Player: null	
 }
