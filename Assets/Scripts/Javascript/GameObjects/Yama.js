@@ -15,9 +15,11 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
 
       _self.animations.play('moveRight', 8, true);
 
-    _self.Tentacle = _game.add.sprite(_self.x, _self.y + 15, "");
-    _self.Tentacle.width = 40;
-    _self.Tentacle.height = 20;
+      _self.scale.setTo(2);
+
+    _self.Tentacle = _game.add.sprite(_self.x, _self.y + 30, "");
+    _self.Tentacle.width = 80;
+    _self.Tentacle.height = 40;
     _self.Tentacle.tint = "#FF2626";
 
     _self.Weapon1 = _weapon1 || null;
@@ -155,13 +157,13 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
 
   _self.MoveUp = function()
   {   
-      _self.position.y += 1.5;
+      _self.position.y += 4;
       _self.Tentacle.position.y = _self.position.y + 15;
       _self.animations.play('moveDown',8,true);
   }
   _self.MoveDown = function()
   {   
-      _self.position.y -= 1.5;
+      _self.position.y -= 4;
       _self.Tentacle.position.y = _self.position.y + 15;
       _self.animations.play('moveUp',8,true);
   }
@@ -174,7 +176,7 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   {   
       _self.attackAnimation = true;
       console.log('attack');
-      var tween = Application.Game.add.tween(_self.Tentacle).to( {x: _self.Tentacle.x + 65 }, 200, Phaser.Easing.Sinusoidal.In, true);
+      var tween = Application.Game.add.tween(_self.Tentacle).to( {x: _self.Tentacle.x + 150 }, 200, Phaser.Easing.Sinusoidal.In, true);
       tween.yoyo(true);
       tween.onComplete.add(function () {_self.attackAnimation = false;}, this);
 
