@@ -1,4 +1,4 @@
-function Shuriken()
+function Shuriken(_bulletGroup)
 {
   
 
@@ -26,18 +26,26 @@ function Shuriken()
     if (_self.canShoot) 
     {
       _self.canShoot = false;
-      Application.Game.time.events.add(Phaser.Timer.SECOND * 0.5, function () {_self.canShoot = true;}, this);
+      Application.Game.time.events.add(Phaser.Timer.SECOND * 1, function () {_self.canShoot = true;}, this);
       var bullet = Application.Game.add.sprite(_Player.x, _Player.y, "Shuriken");
       bullet.anchor.setTo(0.5);
-      bullet.scale.setTo(0.5);
+      bullet.scale.setTo(0.3);
       Application.Game.physics.arcade.enable(bullet);
-      bullet.checkWorldBounds = true;
-      bullet.outOfBoundsKill = true;
       bullet.update = function () 
       {
-        this.x += 25;
-        this.angle += 25;
+        console.log('alive')
+        bullet.x += 5;
+        bullet.angle += 10;
+        if (Application.debugMode)
+        {
+            Application.Game.debug.body(bullet);
+        }
+        if (bullet.position.x > Application.Game.world.width + bullet.width) 
+        {
+          bullet.destroy();
+        }
       }
+      _bulletGroup.add(bullet);
     }
      
   }

@@ -7,7 +7,8 @@ Application.LevelTest.prototype = {
 		this.background1 = Application.Game.add.sprite(0,-0,'Background');
 		this.background2 = Application.Game.add.sprite(this.background1.width,-0,'Background');
 
-		var s = new Shuriken();
+		this.Bullets = Application.Game.add.physicsGroup();
+		var s = new Shuriken(this.Bullets);
 
 		this.Player = new Yama(Application.Game,150,300,s,s);
 		var Red = new Girl(Application.Game,500,300,"Red",Math.random() * (2 - 0.5) + 0.5);
@@ -38,6 +39,7 @@ Application.LevelTest.prototype = {
 		}
 
 		Application.Game.physics.arcade.collide(this.Player, this.Ennemies, this.collisionPlayerEnnemies);
+		Application.Game.physics.arcade.collide(this.Bullets, this.Ennemies, this.collisionBulletEnnemies, null, this);
 		Application.Game.physics.arcade.collide(this.Player.Tentacle, this.Ennemies, this.killEnnemies);
 
 	},
@@ -51,6 +53,11 @@ Application.LevelTest.prototype = {
 	collisionPlayerEnnemies : function (Player, Ennemy) 
 	{
 		Player.Hitted();
+		Ennemy.Restart();
+	},
+	collisionBulletEnnemies : function (Bullet, Ennemy) 
+	{
+		this.Bullets.remove(Bullet);
 		Ennemy.Restart();
 	},
 	killEnnemies : function (Tentacle, Ennemy) 
