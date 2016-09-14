@@ -5,6 +5,8 @@ Application.TitleScene.prototype = {
 		console.log('Starting','TitleScene');
 
 		this.background = Application.Game.add.sprite(0,0,'Title');
+		this.background.width = Application.Game.world.width;
+		this.background.height = Application.Game.world.height;
 
 	 	this.start = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 90, "Start", { font: "20px Merriweather", fill: "#fff", align: "left" });
 		this.start.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);

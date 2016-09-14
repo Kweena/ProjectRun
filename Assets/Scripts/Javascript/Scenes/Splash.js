@@ -22,7 +22,8 @@ Application.Splash.prototype =
 		this.scale.pageAlignVertically = true;
 		//console.log(this.scale)
 		this.game.stage.backgroundColor = "#FFFFFF";
-		var image = this.add.image(Application.Config.width / 2, Application.Config.height / 2, 'logo');
+		var image = this.add.image(Application.Game.world.width / 2, Application.Game.world.height / 2, 'logo');
+		image.scale.setTo(2.2);
 		image.anchor.setTo(0.5,0.5);
 		image.alpha = 0;
 

@@ -46,9 +46,13 @@ Application.Preload.prototype =
 	    this.game.load.image('PMoon','Assets/Graphics/SFX/blueParticles.png');
 
 	    //Background Loading
-	    this.game.load.image('City1','Assets/Graphics/Background/CityTest1.png');
-	    this.game.load.image('City2','Assets/Graphics/Background/CityTest2.png');
+	    //this.game.load.image('City1','Assets/Graphics/Background/CityTest1.png');
+	    //this.game.load.image('City2','Assets/Graphics/Background/CityTest2.png');
+	    this.game.load.image('Background','Assets/Graphics/Background/BackgroundTest.png');
+	    
 
+	    //Weapon Loading
+	    this.game.load.image('ShurikenBtn','Assets/Graphics/Weapons/ShurikenBtn.png');
 
 	    //Debug Loading
 	    this.game.load.image('DebugUp','Assets/Graphics/Debug/DebugUp.png');
