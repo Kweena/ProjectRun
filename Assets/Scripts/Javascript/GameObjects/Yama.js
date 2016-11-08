@@ -33,11 +33,11 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
     _self.body.collideWorldBounds = true;
 
     _self.keys =  {};
-    _self.keys.up = Phaser.Keyboard.UP;
-    _self.keys.down = Phaser.Keyboard.DOWN;
-    _self.keys.attack = Phaser.Keyboard.SPACEBAR;
-    _self.keys.weapon1 = Phaser.Keyboard.A;
-    _self.keys.weapon2 = Phaser.Keyboard.E;
+    _self.keys.up = Application.Keys.up.keyCode;
+    _self.keys.down = Application.Keys.down.keyCode;
+    _self.keys.attack = Application.Keys.attack.keyCode;
+    _self.keys.weapon1 = Application.Keys.weapon1.keyCode;
+    _self.keys.weapon2 = Application.Keys.weapon2.keyCode;
 
     _self.touchInput = {};
     _self.touchInput.up = false;

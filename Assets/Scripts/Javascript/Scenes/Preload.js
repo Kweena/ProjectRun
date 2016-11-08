@@ -17,6 +17,30 @@ Application.Preload.prototype =
 		Application.Juicy = this.game.plugins.add(new Phaser.Plugin.Juicy(this.game));
 
 
+		// Load Saved Data (LocalStorage)
+		if(typeof localStorage!='undefined') 
+		{
+		  	// Récupération de la valeur dans web storage
+		  	var SavedKeys = localStorage.getItem('Keys');
+		  	console.log("keys :");
+		  	console.log(SavedKeys);
+		  	if (SavedKeys == null) 
+			{
+				// Stockage valeur par défaut
+		  		localStorage.setItem('Keys',JSON.stringify(Application.Keys));
+			}
+			else 
+			{
+				Application.Keys = JSON.parse(SavedKeys);
+			}
+		  	
+		} 
+		else 
+		{
+		  	alert("localStorage n'est pas supporté");
+		}
+
+
 	    /***********************
 	    	Loading Example
 		************************

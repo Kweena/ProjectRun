@@ -22,6 +22,8 @@ Application.TitleScene.prototype = {
 		this.option = this.game.add.text(this.game.world.centerX, this.game.world.centerY + 150, "Option", { font: "20px Merriweather", fill: "#808DC1", align: "left" });
 		this.option.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
 		this.option.anchor.x = 0.5;
+		this.option.inputEnabled = true;
+		this.option.events.onInputOver.add(StartOptions,this);
 
 		this.credit = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 180, "Credit", { font: "20px Merriweather", fill: "#fff", align: "left" });
 		this.credit.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
@@ -48,4 +50,8 @@ Application.TitleScene.prototype = {
 function StartGame (item)
 {
 	this.state.start("LevelTest");
+}
+function StartOptions (item)
+{
+	this.state.start("Options");
 }
