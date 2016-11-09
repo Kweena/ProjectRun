@@ -38,8 +38,8 @@ function Girl(_game,_x,_y,_color,_speed)
 
   _self.Restart = function()
   { 
-    _self.position.x = Math.random() * (1000 - 645) + 645;
-    _self.position.y = Math.random() * (350 - 250) + 250 ;
+    _self.position.x = Math.random() * 200 + Application.Game.width;
+    _self.position.y = Math.random() * Application.Game.height ;
   }
 
 
