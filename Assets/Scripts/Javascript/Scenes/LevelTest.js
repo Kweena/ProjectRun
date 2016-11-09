@@ -27,11 +27,18 @@ Application.LevelTest.prototype = {
 		this.Ennemies.add(Green2);
 	
 
-		this.PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5)
-		this.PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5)
-		this.PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5)
-		this.PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5)
-		this.PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5)
+		this.MoonParticules = Application.Game.add.physicsGroup();
+		var PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
+		this.MoonParticules.add(PMoon);
+		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
+		this.MoonParticules.add(PMoon);
+		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
+		this.MoonParticules.add(PMoon);
+		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
+		this.MoonParticules.add(PMoon);
+		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
+		this.MoonParticules.add(PMoon);
+		
 
 	},
 
@@ -49,6 +56,7 @@ Application.LevelTest.prototype = {
 		}
 
 		Application.Game.physics.arcade.collide(this.Player, this.Ennemies, this.collisionPlayerEnnemies);
+		Application.Game.physics.arcade.collide(this.Player, this.MoonParticules, this.getParticules);
 		Application.Game.physics.arcade.collide(this.Bullets, this.Ennemies, this.collisionBulletEnnemies, null, this);
 		Application.Game.physics.arcade.collide(this.Player.Tentacle, this.Ennemies, this.killEnnemies);
 
@@ -74,6 +82,11 @@ Application.LevelTest.prototype = {
 	{
 		// Score increment ?
 		Ennemy.Restart();
+	},
+	getParticules : function (Player, MoonParticule) 
+	{
+		Player.GetParticules();
+		MoonParticule.Restart();
 	}
 
 }

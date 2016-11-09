@@ -4,7 +4,7 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
            Properties
   ******************************/
 
-  var UpDownNoMove = 0.25;
+  var UpDownNoMove = 0.5;
 
   // create a Phaser Sprite Object
   var _self = _game.add.sprite(_x, _y, "Yama");
@@ -24,6 +24,8 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
 
     _self.Weapon1 = _weapon1 || null;
     _self.Weapon2 = _weapon2 || null;
+
+    _self.MoonParticules = 0;
 
     _game.physics.arcade.enable(_self);
     _self.anchor.set(0.5);
@@ -186,6 +188,11 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   _self.Hitted = function()
   {   
       console.log('Hit');
+  }
+  _self.GetParticules = function()
+  {   
+      _self.MoonParticules++;
+      //console.log(_self.MoonParticules);
   }
 
   /*****************************
