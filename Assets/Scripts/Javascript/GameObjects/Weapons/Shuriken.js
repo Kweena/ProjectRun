@@ -33,7 +33,7 @@ function Shuriken(_bulletGroup)
       Application.Game.physics.arcade.enable(bullet);
       bullet.update = function () 
       {
-        console.log('alive')
+        //console.log('alive')
         bullet.x += 5;
         bullet.angle += 10;
         if (Application.debugMode)
