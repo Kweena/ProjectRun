@@ -21,7 +21,7 @@ function ParticuleMoon(_game,_x,_y,_speed)
   // Phaser update method (called automatically)
   _self.update = function()
   {
-    _self.position.x -= speed;
+    _self.position.x -= speed + Application.Player.Speed;
 
     if (_self.position.x + _self.width < 0) 
     {

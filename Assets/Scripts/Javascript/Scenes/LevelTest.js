@@ -10,7 +10,7 @@ Application.LevelTest.prototype = {
 		this.Bullets = Application.Game.add.physicsGroup();
 		var s = new Shuriken(this.Bullets);
 
-		this.Player = new Yama(Application.Game,150,300,s,s);
+		Application.Player = this.Player = new Yama(Application.Game,150,300,s,s);
 		var Red = new Girl(Application.Game,-10,-10,"Red",Math.random() * (2 - 0.5) + 0.5);
 		var Blue = new Girl(Application.Game,-10,-10,"Blue",Math.random() * (2 - 0.5) + 0.5);
 		var Green = new Girl(Application.Game,-10,-10,"Green",Math.random() * (2 - 0.5) + 0.5);
@@ -44,8 +44,8 @@ Application.LevelTest.prototype = {
 
 	update : function()
 	{
-		this.background1.position.x -= 1.5;	
-		this.background2.position.x -= 1.5;	
+		this.background1.position.x -= this.Player.Speed;	
+		this.background2.position.x -= this.Player.Speed;	
 		if (this.background1.position.x < -this.background1.width) 
 		{
 			this.background1.position.x = this.background2.position.x + this.background2.width;
