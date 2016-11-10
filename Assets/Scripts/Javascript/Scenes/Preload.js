@@ -59,7 +59,6 @@ Application.Preload.prototype =
 
 
 	    //Chara Loading
-	    //this.game.load.spritesheet('Yama','Assets/Graphics/Chara/Yama_98_96.png',96,96,16);
 	    this.game.load.spritesheet('Yama','Assets/Graphics/Character/yam001_01.png',171,128,12);
 
 	    //Chara Girl
@@ -68,7 +67,8 @@ Application.Preload.prototype =
 	    this.game.load.image('Green','Assets/Graphics/Chara/GirlGreen_60_60.PNG');
 
 	    //ParticlesLoad
-	    this.game.load.image('PMoon','Assets/Graphics/SFX/blueParticles.png');
+	    //this.game.load.image('PMoon','Assets/Graphics/SFX/blueParticles.png');
+	    this.game.load.spritesheet('PMoon','Assets/Graphics/Item/itm001_01.png',48,48,6);
 
 	    //Background Loading
 	    //this.game.load.image('City1','Assets/Graphics/Background/CityTest1.png');

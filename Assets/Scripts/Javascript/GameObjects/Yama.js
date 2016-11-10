@@ -11,6 +11,7 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
 
   _self.MoonParticules = 0;
   _self.Speed = 2;
+  _self.Invulnerability = false;
   
   var UpDownMoveSpeed = 0.5;
 
@@ -202,8 +203,21 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   }
 
   _self.Hitted = function()
-  {   
-      console.log('Hit');
+  { 
+    if (!_self.Invulnerability) 
+    {
+      _self.Invulnerability = true;
+      _self.tint = 0Xf00000;
+      _self.InvulnerabilityTween = _game.time.events.repeat(100, 9, function () {
+        if (_self.tint == 0Xf00000) {_self.tint = 0Xffffff;}
+        else {_self.tint = 0Xf00000;}
+      }, this);
+      _game.time.events.add(1000, function () {
+        _self.tint = 0Xffffff;
+        _self.Invulnerability = false;
+      }, this);
+      //console.log('Hit');
+    }
   }
   _self.GetParticules = function()
   {   
