@@ -19,7 +19,7 @@ Application.TitleScene.prototype = {
 		this.load.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
 		this.load.anchor.x = 0.5;
 
-		this.option = this.game.add.text(this.game.world.centerX, this.game.world.centerY + 150, "Option", { font: "20px Merriweather", fill: "#808DC1", align: "left" });
+		this.option = this.game.add.text(this.game.world.centerX, this.game.world.centerY + 150, "Option", { font: "20px Merriweather", fill: "#fff", align: "left" });
 		this.option.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
 		this.option.anchor.x = 0.5;
 		this.option.inputEnabled = true;
@@ -29,9 +29,9 @@ Application.TitleScene.prototype = {
 		this.credit.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
 		this.credit.anchor.x = 0.5;
 		this.credit.inputEnabled = true;
-		// this.credit.events.onInputOver.add(StartCredit,this);
+		//this.credit.events.onInputOver.add(StartCredit,this);
 
-		// this.start.events.onInputOver.add(StartGame,this);
+		//this.start.events.onInputOver.add(StartGame,this);
 		
 	},
 

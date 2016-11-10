@@ -10,7 +10,7 @@ function Shuriken(_bulletGroup)
   var _self = Application.Game.add.sprite(0, 0, "");
       _self.anchor.setTo(0.5,0.5);
 
-  _self.speed = 0;
+  _self.speed = 5;
   _self.canShoot = true;
 
   _self.btnAsset = "ShurikenBtn";
@@ -33,8 +33,8 @@ function Shuriken(_bulletGroup)
       Application.Game.physics.arcade.enable(bullet);
       bullet.update = function () 
       {
-        console.log('alive')
-        bullet.x += 5;
+        //console.log('alive')
+        bullet.x += _self.speed + _Player.Speed;
         bullet.angle += 10;
         if (Application.debugMode)
         {

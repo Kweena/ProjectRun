@@ -1,0 +1,57 @@
+ver.2016-11-10
+
+--------------------files template---------------------------
+
+--folder-------------------------
+
+	>asset
+	|-/character: yama/bosses/...
+	|-/enemy
+	|-/background: background/foreground/ground/deco...
+	|-/item: positive or negative boost/lum/explosive barrel/...
+	|-/effect: shield/
+	|-/ui: menu/icon..
+
+
+--model-------------------------
+
+	bcg109_03.XXX
+
+		bcg = type/category
+		1 = world
+		09 = id 
+		_03 = iteration/variation
+
+
+--detail-------------------------
+	>type/category:
+
+		bcg = background
+		frg = foreground
+		itm = item
+		bss = boss
+		eny = enemy
+		yam = yama
+		dec = deco
+		grd = ground
+		eff = effect
+		icn = icon
+
+	>world:
+
+		0 = not specific of any world like lum, boost etc. Should always be loaded. 
+		1/2/3... = item/elements specific for a world
+
+	>id:
+
+		01>99>A1>Z9 = specific asset by type/category, a enemy, a plant.. 
+
+	>variation:
+
+		01>99 = variation of an asset/ swap color etc.
+
+
+
+--history-----------------------
+
+2016-11-10 : creation.
