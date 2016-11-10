@@ -65,6 +65,12 @@ Application.Preload.prototype =
 	    this.game.load.image('Red','Assets/Graphics/Chara/GirlRed_60_60.PNG');
 	    this.game.load.image('Blue','Assets/Graphics/Chara/GirlBlue_60_60.PNG');
 	    this.game.load.image('Green','Assets/Graphics/Chara/GirlGreen_60_60.PNG');
+	    
+	    //enemy
+	    this.game.load.image('Mob_Spike','Assets/Graphics/Enemy/eny101_01.png');
+	    this.game.load.image('Mob_Noodle','Assets/Graphics/Enemy/eny102_01.png');
+	    this.game.load.image('Mob_Barrel','Assets/Graphics/Item/itm101_01.png');
+	    
 
 	    //ParticlesLoad
 	    //this.game.load.image('PMoon','Assets/Graphics/SFX/blueParticles.png');
