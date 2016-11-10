@@ -17,20 +17,25 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   _self.Weapon1 = _weapon1 || null;
   _self.Weapon2 = _weapon2 || null;
 
-  _self.animations.add('moveDown', [0,1,2,3]);
-  _self.animations.add('moveLeft', [4,5,6,7]);
-  _self.animations.add('moveRight', [8,9,10,11]);
-  _self.animations.add('moveUp', [12,13,14,15]);
+  _self.animations.add('moveDown', [0]);
+  _self.animations.add('moveLeft', [0]);
+  _self.animations.add('moveRight', [0]);
+  _self.animations.add('moveUp', [0]);
+  _self.animations.add('attack', [5,6,7,8,9,0]);
   _self.animations.play('moveRight', 8, true);
   _self.scale.setTo(2);
 
-  _self.Tentacle = _game.add.sprite(_self.x, _self.y + 30, "");
-  _self.Tentacle.width = 80;
-  _self.Tentacle.height = 40;
+  _self.Tentacle = _game.add.sprite(_self.x, _self.y + 20, "");
+  _self.Tentacle.width = 60;
+  _self.Tentacle.height = 100;
   _self.Tentacle.tint = "#FF2626";
 
   _game.physics.arcade.enable(_self);
   _self.anchor.set(0.5);
+  // resize collider
+  _self.body.setSize(80, 80, 48, 48);
+  
+  
   _game.physics.arcade.enable(_self.Tentacle);
   _self.Tentacle.anchor.set(0.5);
 
@@ -161,26 +166,39 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   _self.MoveUp = function()
   {   
       _self.position.y += 4;
-      _self.Tentacle.position.y = _self.position.y + 15;
-      _self.animations.play('moveDown',8,true);
+      _self.Tentacle.position.y = _self.position.y + 20;
+      if (!_self.attackAnimation) 
+      {
+        _self.animations.play('moveUp',8,true);
+      }
   }
   _self.MoveDown = function()
   {   
       _self.position.y -= 4;
-      _self.Tentacle.position.y = _self.position.y + 15;
-      _self.animations.play('moveUp',8,true);
+      _self.Tentacle.position.y = _self.position.y + 20;
+      if (!_self.attackAnimation) 
+      {
+        _self.animations.play('moveDown',8,true);
+      }
   }
   _self.MoveForward = function()
   {   
-    _self.animations.play('moveRight', 8, true);
+    if (!_self.attackAnimation) 
+    {
+      _self.animations.play('moveRight', 8, true);
+    } 
   }
   _self.Attack = function()
   {   
       _self.attackAnimation = true;
-      console.log('attack');
-      var tween = Application.Game.add.tween(_self.Tentacle).to( {x: _self.Tentacle.x + 150 }, 200, Phaser.Easing.Sinusoidal.In, true);
-      tween.yoyo(true);
-      tween.onComplete.add(function () {_self.attackAnimation = false;}, this);
+      _self.animations.play('attack', 10, false);
+      _self.animations.currentAnim.onComplete.add(function () {
+        _self.attackAnimation = false;
+        _self.animations.play('moveRight', 8, true);
+      }, this);
+      //console.log('attack');
+      var tween = Application.Game.add.tween(_self.Tentacle).to( {x: _self.Tentacle.x + 80 }, 75, Phaser.Easing.Sinusoidal.In, true);
+      tween.yoyo(true,150);
   }
 
   _self.Hitted = function()

@@ -59,7 +59,8 @@ Application.Preload.prototype =
 
 
 	    //Chara Loading
-	    this.game.load.spritesheet('Yama','Assets/Graphics/Chara/Yama_98_96.png',96,96,16);
+	    //this.game.load.spritesheet('Yama','Assets/Graphics/Chara/Yama_98_96.png',96,96,16);
+	    this.game.load.spritesheet('Yama','Assets/Graphics/Character/yam001_01.png',171,128,12);
 
 	    //Chara Girl
 	    this.game.load.image('Red','Assets/Graphics/Chara/GirlRed_60_60.PNG');
