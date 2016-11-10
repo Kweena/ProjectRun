@@ -7,6 +7,20 @@ Application.LevelTest.prototype = {
 		this.background1 = Application.Game.add.sprite(0,-0,'Background');
 		this.background2 = Application.Game.add.sprite(this.background1.width,-0,'Background');
 
+		//futur HUD sans element graphique ( très très sommaire, j'doit vraiment revoir nos cours etc -_- )
+		var Light = 0;
+		this.nbrLight = this.game.add.text(this.game.world.centerX,this.game.world.centerY + 450, "Light: " + Light,{ font: "40px Merriweather", fill: "#fff", align: "left" });
+
+		var Life = 5;
+		this.nbrLife = this.game.add.text(this.game.world.centerX - 900,this.game.world.centerY - 500, "Life: " + Life,{ font: "40px Merriweather", fill: "#fff",align:"left"});
+
+		var Weapon = 3;
+		this.nbrWeapon = this.game.add.text(this.game.world.centerX - 700,this.game.world.centerY - 500, "☼: "  + Life,{ font: "40px Merriweather", fill: "#fff",align:"left"});
+
+		var Progression;
+		this.Progression = this.game.add.text(this.game.world.centerX)
+
+
 		this.Bullets = Application.Game.add.physicsGroup();
 		var s = new Shuriken(this.Bullets);
 
