@@ -24,13 +24,13 @@ Application.LevelTest.prototype = {
 		this.Bullets = Application.Game.add.physicsGroup();
 		var s = new Shuriken(this.Bullets);
 
-		Application.Player = this.Player = new Yama(Application.Game,150,300,s,s);
-		var Red = new Girl(Application.Game,-10,-10,"Red",Math.random() * (2 - 0.5) + 0.5);
-		var Blue = new Girl(Application.Game,-10,-10,"Blue",Math.random() * (2 - 0.5) + 0.5);
-		var Green = new Girl(Application.Game,-10,-10,"Green",Math.random() * (2 - 0.5) + 0.5);
-		var Red2 = new Girl(Application.Game,-10,-10,"Red",Math.random() * (2 - 0.5) + 0.5);
-		var Blue2 = new Girl(Application.Game,-10,-10,"Blue",Math.random() * (2 - 0.5) + 0.5);
-		var Green2 = new Girl(Application.Game,-10,-10,"Green",Math.random() * (2 - 0.5) + 0.5);
+		Application.Player = this.Player = new Yama(Application.Game,225,300,s,s);
+		var Red = new Girl(Application.Game,-10,-10,"Mob_Spike",Math.random() * (2 - 0.5) + 0.5);
+		var Blue = new Girl(Application.Game,-10,-10,"Mob_Noodle",Math.random() * (2 - 0.5) + 0.5);
+		var Green = new Girl(Application.Game,-10,-10,"Mob_Barrel",0);
+		var Red2 = new Girl(Application.Game,-10,-10,"Mob_Spike",Math.random() * (2 - 0.5) + 0.5);
+		var Blue2 = new Girl(Application.Game,-10,-10,"Mob_Noodle",Math.random() * (2 - 0.5) + 0.5);
+		var Green2 = new Girl(Application.Game,-10,-10,"Mob_Barrel",0);
 
 		this.Ennemies = Application.Game.add.physicsGroup();
 		this.Ennemies.add(Red);

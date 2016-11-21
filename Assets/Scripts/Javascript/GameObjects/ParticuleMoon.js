@@ -8,8 +8,14 @@ function ParticuleMoon(_game,_x,_y,_speed)
 
   // create a Phaser Sprite Object
   var _self = _game.add.sprite(_x, _y, "PMoon");
-      _self.anchor.setTo(0.5,0.5);
-      _self.scale.setTo(0.4,0.4);
+  _self.scale.setTo(2,2);
+  
+  _game.physics.arcade.enable(_self);
+  _self.anchor.set(0.5);
+  // resize collider
+  _self.body.setSize(16, 16, 25, 32);
+ 
+
 
   var speed = _speed;
 
