@@ -1,4 +1,4 @@
-Application.LevelTest = function(){};
+	Application.LevelTest = function(){};
 Application.LevelTest.prototype = {
 	create: function()
 	{ 
@@ -13,13 +13,11 @@ Application.LevelTest.prototype = {
 
 		var Life = 5;
 		this.nbrLife = this.game.add.text(this.game.world.centerX - 900,this.game.world.centerY - 500, "Life: " + Life,{ font: "40px Merriweather", fill: "#fff",align:"left"});
+		this.life = Application.Game.add.sprite(this.game.world.centerX - 850, this.game.world.centerY - 450, 'life');
+		this.life.scale.setTo(32,32);
 
 		var Weapon = 3;
 		this.nbrWeapon = this.game.add.text(this.game.world.centerX - 700,this.game.world.centerY - 500, "☼: "  + Life,{ font: "40px Merriweather", fill: "#fff",align:"left"});
-
-		var Progression;
-		this.Progression = this.game.add.text(this.game.world.centerX)
-
 
 		this.Bullets = Application.Game.add.physicsGroup();
 		var s = new Shuriken(this.Bullets);

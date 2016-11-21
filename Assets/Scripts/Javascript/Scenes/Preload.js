@@ -80,6 +80,7 @@ Application.Preload.prototype =
 	    //this.game.load.image('City1','Assets/Graphics/Background/CityTest1.png');
 	    //this.game.load.image('City2','Assets/Graphics/Background/CityTest2.png');
 	    this.game.load.image('Background','Assets/Graphics/Background/BackgroundTest.png');
+	    this.game.load.spritesheet('life','Assets/Graphics/UI/icn001_01.png',2.5,13.5,5);
 	    
 
 	    //Weapon Loading
