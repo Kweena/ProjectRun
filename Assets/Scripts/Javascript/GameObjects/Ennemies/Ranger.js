@@ -1,4 +1,4 @@
-function Girl(_game,_x,_y,_color,_speed)
+function Ranger(_game,_x,_y,_sprite,_speed)
 {
   
 
@@ -6,13 +6,18 @@ function Girl(_game,_x,_y,_color,_speed)
            Properties
   ******************************/
 
+  var _sprite = _sprite || "Mob_Noodle";
+
   // create a Phaser Sprite Object
-  var _self = _game.add.sprite(_x, _y, _color);
+  var _self = _game.add.sprite(_x, _y, _sprite);
       _self.anchor.setTo(0.5,0.5);
 
-  var speed = _speed;
+  var speed = _speed || 0.75;
 
   _game.physics.arcade.enable(_self);
+
+  // resize collider
+  _self.body.setSize(50, 50, 30, 35);
 
 
   /*****************************
@@ -38,8 +43,9 @@ function Girl(_game,_x,_y,_color,_speed)
 
   _self.Restart = function()
   { 
-    _self.position.x = Math.random() * 200 + Application.Game.width;
+    _self.position.x = Math.random() * 500 + Application.Game.width;
     _self.position.y = Math.random() * Application.Game.height ;
+    Application.Game.math.clamp(_self.position.y, 0 + _self.height * 0.5, Application.Game.height - _self.height * 0.5)
   }
 
 
