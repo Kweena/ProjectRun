@@ -6,16 +6,17 @@ Application.LevelTest.prototype = {
 		console.log('Starting','LevelTest');
 		this.background1 = Application.Game.add.sprite(0,-0,'Background');
 		this.background2 = Application.Game.add.sprite(this.background1.width,-0,'Background');
-		this.blackUI = Application.Game.add.sprite(0,0,'BlackUI');
-		this.blackUI.scale.setTo(16,3);
+		
 
 		/*********************************** 
 	    			HUD Start
 	    ************************************/
-
+	    
+		this.blackUI = Application.Game.add.sprite(0,0,'BlackUI');
+		this.blackUI.scale.setTo(16,3);
 		//futur HUD sans element graphique ( très très sommaire, j'doit vraiment revoir nos cours etc -_- )
-		var Light = 0;
-		this.nbrLight = this.game.add.text(this.game.world.centerX,this.game.world.centerY + 450, "Light: " + Light,{ font: "40px Merriweather", fill: "#fff", align: "left" });
+		//var Light = 0;
+		//this.nbrLight = this.game.add.text(this.game.world.centerX,this.game.world.centerY + 450, "Light: " + Light,{ font: "40px Merriweather", fill: "#fff", align: "left" });
 
 		//var Life = 5;
 		//this.nbrLife = this.game.add.text(this.game.world.centerX - 900,this.game.world.centerY - 500, "Life: " + Life,{ font: "40px Merriweather", fill: "#fff",align:"left"});
@@ -40,6 +41,26 @@ Application.LevelTest.prototype = {
 		this.weapon = Application.Game.add.sprite(this.world.centerX - 810, this.game.world.centerY - 490,'Weapon');
 
 		this.weapon.scale.setTo(1.8,1.8);
+
+
+		// Particules Bar
+
+		this.maxParticules = 30;
+
+		this.particulesBar = Application.Game.add.sprite(-200, -200,'Bar');
+		this.particulesBar.scale.setTo(3,3);
+
+		this.cropRect = new Phaser.Rectangle(0, 0, 0, this.particulesBar.height);
+
+		var posX = Application.Game.width * 0.5 - this.particulesBar.width * 0.5 ;
+		var posY = Application.Game.height - 50;
+
+		this.particulesBar.crop(this.cropRect);
+		this.particulesBar.position.x = posX;
+		this.particulesBar.position.y = posY;
+
+		this.particulesBarContainer = Application.Game.add.sprite(posX, posY,'BarContainer');
+		this.particulesBarContainer.scale.setTo(3,3);
 
 		/*********************************** 
 	    			HUD End
@@ -129,6 +150,8 @@ Application.LevelTest.prototype = {
 	getParticules : function (Player, MoonParticule) 
 	{
 		Player.GetParticules();
+		this.cropRect.width = 3 + (((this.particulesBarContainer.width / this.particulesBarContainer.scale.x - 6)/this.maxParticules) * Player.MoonParticules);
+		this.particulesBar.updateCrop();
 		MoonParticule.Restart();
 	}
 

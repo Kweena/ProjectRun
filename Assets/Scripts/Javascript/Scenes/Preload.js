@@ -91,6 +91,8 @@ Application.Preload.prototype =
 	    this.game.load.image('Weapon','Assets/Graphics/UI/star.png');
 	    this.game.load.image('BlackUI','Assets/Graphics/UI/black_UI.png');
 	    this.game.load.image('Stage','Assets/Graphics/UI/stage.png');
+	    this.game.load.image('Bar','Assets/Graphics/UI/bar.png');
+	    this.game.load.image('BarContainer','Assets/Graphics/UI/barContainer.png');
 	    
 
 	    //Weapon Loading
