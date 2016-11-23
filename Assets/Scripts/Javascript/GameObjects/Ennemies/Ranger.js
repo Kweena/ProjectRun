@@ -20,7 +20,7 @@ function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
   // resize collider
   _self.body.setSize(50, 50, 30, 35);
 
-  setInterval(function(){ _self.shoot(); }, 3500);
+  setTimeout(function(){ _self.shoot(); }, Math.random() * 3000 + 1000);
 
   /*****************************
             Method
@@ -49,6 +49,8 @@ function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
     _self.ennemiesGroup.add(bullet);
     bullet.body.setSize(50, 10, -40, 0);
 
+    setTimeout(function(){ _self.shoot(); }, Math.random() * 3000 + 1000);
+
     bullet.update = function()
     {
       this.position.x -= 15 + Application.Player.Speed;
@@ -72,7 +74,7 @@ function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
   { 
     _self.position.x = Math.random() * 500 + Application.Game.width;
     _self.position.y = Math.random() * Application.Game.height ;
-    Application.Game.math.clamp(_self.position.y, 0 + 80, Application.Game.height - 80)
+    _self.position.y = Application.Game.math.clamp(_self.position.y, 0 + 80, Application.Game.height - 80);
   }
 
 

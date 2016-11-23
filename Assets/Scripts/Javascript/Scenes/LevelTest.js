@@ -9,6 +9,10 @@ Application.LevelTest.prototype = {
 		this.blackUI = Application.Game.add.sprite(0,0,'BlackUI');
 		this.blackUI.scale.setTo(16,3);
 
+		/*********************************** 
+	    			HUD Start
+	    ************************************/
+
 		//futur HUD sans element graphique ( très très sommaire, j'doit vraiment revoir nos cours etc -_- )
 		var Light = 0;
 		this.nbrLight = this.game.add.text(this.game.world.centerX,this.game.world.centerY + 450, "Light: " + Light,{ font: "40px Merriweather", fill: "#fff", align: "left" });
@@ -30,10 +34,14 @@ Application.LevelTest.prototype = {
 		this.life[5].scale.setTo(1.5,1.5);
 		//this.life.scale.setTo(32,32);
 
-		//var Weapon = 3;
-		//this.nbrWeapon = this.game.add.text(this.game.world.centerX - 700,this.game.world.centerY - 500, "☼: "  + Life,{ font: "40px Merriweather", fill: "#fff",align:"left"});
+		//var Weapon = "3";
+		this.nbrWeapon = this.game.add.text(this.game.world.centerX - 750,this.game.world.centerY - 500, "∞",{ font: "40px Merriweather", fill: "#fff",align:"left"});
 		this.weapon = Application.Game.add.sprite(this.world.centerX - 810, this.game.world.centerY - 490,'Weapon');
 		this.weapon.scale.setTo(1.8,1.8);
+
+		/*********************************** 
+	    			HUD End
+	    ************************************/
 
 		this.Bullets = Application.Game.add.physicsGroup();
 		var s = new Shuriken(this.Bullets);

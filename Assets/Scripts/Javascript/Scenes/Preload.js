@@ -16,6 +16,9 @@ Application.Preload.prototype =
 	    // Add the Juicy Plugins to Application.
 		Application.Juicy = this.game.plugins.add(new Phaser.Plugin.Juicy(this.game));
 
+		/*********************************** 
+	    			Load Parameter
+	    ************************************/
 
 		// Load Saved Data (LocalStorage)
 		if(typeof localStorage!='undefined') 
@@ -113,10 +116,6 @@ Application.Preload.prototype =
 	    	};
 	    }
 
-
-	    /*********************************** 
-	    			Load Parameter
-	    ************************************/
 
 
 	},
