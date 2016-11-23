@@ -15,6 +15,8 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   
   var UpDownMoveSpeed = 0.5;
 
+  _self.Life = 6;
+
   _self.Weapon1 = _weapon1 || null;
   _self.Weapon2 = _weapon2 || null;
 
@@ -217,6 +219,7 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
         _self.Invulnerability = false;
       }, this);
       //console.log('Hit');
+      _self.Life--;
     }
   }
   _self.GetParticules = function()

@@ -9,30 +9,30 @@ Application.LevelTest.prototype = {
 		this.blackUI = Application.Game.add.sprite(0,0,'BlackUI');
 		this.blackUI.scale.setTo(16,3);
 
-
 		//futur HUD sans element graphique ( très très sommaire, j'doit vraiment revoir nos cours etc -_- )
 		var Light = 0;
 		this.nbrLight = this.game.add.text(this.game.world.centerX,this.game.world.centerY + 450, "Light: " + Light,{ font: "40px Merriweather", fill: "#fff", align: "left" });
 
 		//var Life = 5;
 		//this.nbrLife = this.game.add.text(this.game.world.centerX - 900,this.game.world.centerY - 500, "Life: " + Life,{ font: "40px Merriweather", fill: "#fff",align:"left"});
-		this.life0 = Application.Game.add.sprite(this.game.world.centerX - 940, this.game.world.centerY - 500, 'Life');
-		this.life0.scale.setTo(1.5,1.5);
-		this.life1 = Application.Game.add.sprite(this.game.world.centerX - 920, this.game.world.centerY - 500, 'Life');
-		this.life1.scale.setTo(1.5,1.5);
-		this.life2 = Application.Game.add.sprite(this.game.world.centerX - 900, this.game.world.centerY - 500, 'Life');
-		this.life2.scale.setTo(1.5,1.5);
-		this.life3 = Application.Game.add.sprite(this.game.world.centerX - 880, this.game.world.centerY - 500, 'Life');
-		this.life3.scale.setTo(1.5,1.5);
-		this.life4 = Application.Game.add.sprite(this.game.world.centerX - 860, this.game.world.centerY - 500, 'Life');
-		this.life4.scale.setTo(1.5,1.5);
-		this.life5 = Application.Game.add.sprite(this.game.world.centerX - 840, this.game.world.centerY - 500, 'NoLife');
-		this.life5.scale.setTo(1.5,1.5);
+		this.life = [];
+		this.life[0] = Application.Game.add.sprite(this.game.world.centerX - 940, this.game.world.centerY - 500, 'Life');
+		this.life[0].scale.setTo(1.5,1.5);
+		this.life[1] = Application.Game.add.sprite(this.game.world.centerX - 920, this.game.world.centerY - 500, 'Life');
+		this.life[1].scale.setTo(1.5,1.5);
+		this.life[2] = Application.Game.add.sprite(this.game.world.centerX - 900, this.game.world.centerY - 500, 'Life');
+		this.life[2].scale.setTo(1.5,1.5);
+		this.life[3] = Application.Game.add.sprite(this.game.world.centerX - 880, this.game.world.centerY - 500, 'Life');
+		this.life[3].scale.setTo(1.5,1.5);
+		this.life[4] = Application.Game.add.sprite(this.game.world.centerX - 860, this.game.world.centerY - 500, 'Life');
+		this.life[4].scale.setTo(1.5,1.5);
+		this.life[5] = Application.Game.add.sprite(this.game.world.centerX - 840, this.game.world.centerY - 500, 'Life');
+		this.life[5].scale.setTo(1.5,1.5);
 		//this.life.scale.setTo(32,32);
 
 		//var Weapon = 3;
 		//this.nbrWeapon = this.game.add.text(this.game.world.centerX - 700,this.game.world.centerY - 500, "☼: "  + Life,{ font: "40px Merriweather", fill: "#fff",align:"left"});
-		this.weapon = Application.Game.add.sprite(this.world.centerX - 810,this.game.world.centerY - 490,'Weapon');
+		this.weapon = Application.Game.add.sprite(this.world.centerX - 810, this.game.world.centerY - 490,'Weapon');
 		this.weapon.scale.setTo(1.8,1.8);
 
 		this.Bullets = Application.Game.add.physicsGroup();
@@ -86,10 +86,10 @@ Application.LevelTest.prototype = {
 			this.background2.position.x = this.background1.position.x + this.background1.width;
 		}
 
-		Application.Game.physics.arcade.collide(this.Player, this.Ennemies, this.collisionPlayerEnnemies);
-		Application.Game.physics.arcade.collide(this.Player, this.MoonParticules, this.getParticules);
+		Application.Game.physics.arcade.collide(this.Player, this.Ennemies, this.collisionPlayerEnnemies, null, this);
+		Application.Game.physics.arcade.collide(this.Player, this.MoonParticules, this.getParticules, null, this);
 		Application.Game.physics.arcade.collide(this.Bullets, this.Ennemies, this.collisionBulletEnnemies, null, this);
-		Application.Game.physics.arcade.collide(this.Player.Tentacle, this.Ennemies, this.killEnnemies);
+		Application.Game.physics.arcade.collide(this.Player.Tentacle, this.Ennemies, this.killEnnemies, null, this);
 
 	},
 
@@ -102,6 +102,8 @@ Application.LevelTest.prototype = {
 	collisionPlayerEnnemies : function (Player, Ennemy) 
 	{
 		Player.Hitted();
+		this.life[Player.Life].loadTexture('NoLife');
+		if (Player.Life == 0) {Application.Game.state.start("TitleScene");}
 		Ennemy.Restart();
 	},
 	collisionBulletEnnemies : function (Bullet, Ennemy) 
