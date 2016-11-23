@@ -1,4 +1,4 @@
-	Application.LevelTest = function(){};
+Application.LevelTest = function(){};
 Application.LevelTest.prototype = {
 	create: function()
 	{ 
@@ -29,6 +29,8 @@ Application.LevelTest.prototype = {
 		this.life5 = Application.Game.add.sprite(this.game.world.centerX - 840, this.game.world.centerY - 500, 'NoLife');
 		this.life5.scale.setTo(1.5,1.5);
 		//this.life.scale.setTo(32,32);
+
+		this.stage = Application.Game.add.sprite(this.game.world.centerX + 800, this.game.world.centerY - 500, 'Stage');
 
 		//var Weapon = 3;
 		//this.nbrWeapon = this.game.add.text(this.game.world.centerX - 700,this.game.world.centerY - 500, "☼: "  + Life,{ font: "40px Merriweather", fill: "#fff",align:"left"});
