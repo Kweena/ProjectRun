@@ -10,10 +10,10 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   var _self = _game.add.sprite(_x, _y, "Yama");
 
   _self.MoonParticules = 0;
-  _self.Speed = 2;
+  _self.Speed = 3;
   _self.Invulnerability = false;
   
-  var UpDownMoveSpeed = 0.5;
+  _self.VerticalMoveSpeed = 4;
 
   _self.Life = 6;
 
@@ -71,15 +71,15 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
 
     _self.buttonUp = Application.Game.add.button(0, 0, buttonAsset[0], null, this);
     _self.buttonUp.width = Application.Game.world.width * 0.5;
-    _self.buttonUp.height = _self.y - _self.height * UpDownMoveSpeed;
+    _self.buttonUp.height = _self.y - _self.height * 0.5;
     _self.buttonUp.events.onInputOver.add(function(){_self.touchInput.up = true;});
     _self.buttonUp.events.onInputOut.add(function(){_self.touchInput.up = false; _self.touchInput.down = false;});
     _self.buttonUp.events.onInputDown.add(function(){_self.touchInput.up = true;});
     _self.buttonUp.events.onInputUp.add(function(){_self.touchInput.up = false; _self.touchInput.down = false;});
 
-    _self.buttonDown = Application.Game.add.button(0, _self.y + _self.height * UpDownMoveSpeed , buttonAsset[1], null, this);
+    _self.buttonDown = Application.Game.add.button(0, _self.y + _self.height * 0.5 , buttonAsset[1], null, this);
     _self.buttonDown.width = Application.Game.world.width * 0.5;
-    _self.buttonDown.height = Application.Game.world.height - (_self.y + _self.height * UpDownMoveSpeed);
+    _self.buttonDown.height = Application.Game.world.height - (_self.y + _self.height * 0.5);
     _self.buttonDown.events.onInputOver.add(function(){_self.touchInput.down = true;});
     _self.buttonDown.events.onInputOut.add(function(){_self.touchInput.up = false; _self.touchInput.down = false;});
     _self.buttonDown.events.onInputDown.add(function(){_self.touchInput.down = true;});
@@ -128,11 +128,11 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
     //Movement
     if(_game.input.keyboard.isDown(_self.keys.up) || _self.touchInput.up) 
     {
-      _self.MoveDown();
+      _self.MoveUp();
     }  
     else if(_game.input.keyboard.isDown(_self.keys.down) || _self.touchInput.down) 
     {
-      _self.MoveUp();
+      _self.MoveDown();
     }
     else _self.MoveForward();
     //Attack
@@ -154,9 +154,9 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   
     if (Application.touchEnabled) 
     {
-      _self.buttonUp.height = _self.y - _self.height * UpDownMoveSpeed;
-      _self.buttonDown.position.y = _self.y + _self.height * UpDownMoveSpeed;
-      _self.buttonDown.height = Application.Game.height - (_self.y + _self.height * UpDownMoveSpeed);
+      _self.buttonUp.height = _self.y - _self.height * 0.5;
+      _self.buttonDown.position.y = _self.y + _self.height * 0.5;
+      _self.buttonDown.height = Application.Game.height - (_self.y + _self.height * 0.5);
     }
     
     if (Application.debugMode)
@@ -166,19 +166,27 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
     }
   }
 
-  _self.MoveUp = function()
+  _self.MoveDown = function()
   {   
-      _self.position.y += 4;
-      _self.Tentacle.position.y = _self.position.y + 20;
+      if ( _self.position.y < Application.Game.height - 140 )
+      {
+        _self.position.y += _self.VerticalMoveSpeed;
+        _self.Tentacle.position.y = _self.position.y + 20;
+      }
+      
       if (!_self.attackAnimation) 
       {
         _self.animations.play('moveUp',8,true);
       }
   }
-  _self.MoveDown = function()
+  _self.MoveUp = function()
   {   
-      _self.position.y -= 4;
-      _self.Tentacle.position.y = _self.position.y + 20;
+      if ( _self.position.y > 140 )
+      {
+        _self.position.y -= _self.VerticalMoveSpeed;
+        _self.Tentacle.position.y = _self.position.y + 20;
+      }
+
       if (!_self.attackAnimation) 
       {
         _self.animations.play('moveDown',8,true);
@@ -225,7 +233,7 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   _self.GetParticules = function()
   {   
       _self.MoonParticules++;
-      _self.Speed += 0.05;
+      _self.Speed += 0.075;
       //console.log(_self.MoonParticules);
   }
 

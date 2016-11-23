@@ -48,7 +48,7 @@ function ParticuleMoon(_game,_x,_y,_speed)
   { 
     _self.position.x = Math.random() * 200 + Application.Game.width;
     _self.position.y = Math.random() * Application.Game.height ;
-    _self.position.y = Application.Game.math.clamp(_self.position.y, 0 + 80, Application.Game.height - 80);
+    _self.position.y = Application.Game.math.clamp(_self.position.y, 0 + 120, Application.Game.height - 75);
   }
 
 

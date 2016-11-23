@@ -6,14 +6,78 @@ Application.LevelTest.prototype = {
 		console.log('Starting','LevelTest');
 		this.background1 = Application.Game.add.sprite(0,-0,'Background');
 		this.background2 = Application.Game.add.sprite(this.background1.width,-0,'Background');
+
+		this.Bullets = Application.Game.add.physicsGroup();
+		var s = new Shuriken(this.Bullets);
+
+		Application.Player = this.Player = new Yama(Application.Game,225,300,s,s);
+
+		this.Ennemies = Application.Game.add.physicsGroup();
+
+		var Red = new Tank(Application.Game,-10,-10);
+		var Blue = new Ranger(Application.Game,-10,-10,this.Ennemies);
+		var Green = new Barrel(Application.Game,-10,-10);
+		var Red2 = new Tank(Application.Game,-10,-10);
+		var Blue2 = new Ranger(Application.Game,-10,-10,this.Ennemies);
+		var Green2 = new Barrel(Application.Game,-10,-10);
+
 		
+		this.Ennemies.add(Red);
+		this.Ennemies.add(Blue);
+		this.Ennemies.add(Green);
+		this.Ennemies.add(Red2);
+		this.Ennemies.add(Blue2);
+		this.Ennemies.add(Green2);
+	
+
+		this.MoonParticules = Application.Game.add.physicsGroup();
+		var PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
+		this.MoonParticules.add(PMoon);
+		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
+		this.MoonParticules.add(PMoon);
+		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
+		this.MoonParticules.add(PMoon);
+		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
+		this.MoonParticules.add(PMoon);
+		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
+		this.MoonParticules.add(PMoon);
 
 		/*********************************** 
 	    			HUD Start
 	    ************************************/
 	    
-		this.blackUI = Application.Game.add.sprite(0,0,'BlackUI');
-		this.blackUI.scale.setTo(16,3);
+		this.blackUI1 = Application.Game.add.sprite(0,0,'BlackUI');
+		this.blackUI1.scale.setTo(3,3);
+		this.blackUI2 = Application.Game.add.graphics(0, 0);
+
+		// up black rectangle
+		this.blackUI2.beginFill(0x000000);
+	    this.blackUI2.moveTo(0, 0);  
+	    this.blackUI2.lineTo(Application.Game.width, 0); 
+	    this.blackUI2.lineTo(Application.Game.width, 63);  
+	    this.blackUI2.lineTo(0, 63);
+	    this.blackUI2.lineTo(0, 0);
+	    this.blackUI2.endFill();
+	    // down black rectangle
+		this.blackUI2.beginFill(0x000000);
+	    this.blackUI2.moveTo(0, Application.Game.height-63);  
+	    this.blackUI2.lineTo(Application.Game.width, Application.Game.height-63); 
+	    this.blackUI2.lineTo(Application.Game.width, Application.Game.height);  
+	    this.blackUI2.lineTo(0, Application.Game.height);
+	    this.blackUI2.lineTo(0, Application.Game.height-63);
+	    this.blackUI2.endFill();
+
+	    this.blackUI3 = Application.Game.add.sprite(0,Application.Game.height,'BlackUI');
+		this.blackUI3.scale.setTo(3,-3);
+
+		this.blackUI4 = Application.Game.add.sprite(Application.Game.width,Application.Game.height,'BlackUI');
+		this.blackUI4.scale.setTo(-3,-3);
+
+		this.blackUI5 = Application.Game.add.sprite(Application.Game.width,0,'BlackUI');
+		this.blackUI5.scale.setTo(-3,3);
+
+console.log(this.blackUI3)
+
 		//futur HUD sans element graphique ( très très sommaire, j'doit vraiment revoir nos cours etc -_- )
 		//var Light = 0;
 		//this.nbrLight = this.game.add.text(this.game.world.centerX,this.game.world.centerY + 450, "Light: " + Light,{ font: "40px Merriweather", fill: "#fff", align: "left" });
@@ -65,41 +129,6 @@ Application.LevelTest.prototype = {
 		/*********************************** 
 	    			HUD End
 	    ************************************/
-
-		this.Bullets = Application.Game.add.physicsGroup();
-		var s = new Shuriken(this.Bullets);
-
-		Application.Player = this.Player = new Yama(Application.Game,225,300,s,s);
-
-		this.Ennemies = Application.Game.add.physicsGroup();
-
-		var Red = new Tank(Application.Game,-10,-10);
-		var Blue = new Ranger(Application.Game,-10,-10,this.Ennemies);
-		var Green = new Barrel(Application.Game,-10,-10);
-		var Red2 = new Tank(Application.Game,-10,-10);
-		var Blue2 = new Ranger(Application.Game,-10,-10,this.Ennemies);
-		var Green2 = new Barrel(Application.Game,-10,-10);
-
-		
-		this.Ennemies.add(Red);
-		this.Ennemies.add(Blue);
-		this.Ennemies.add(Green);
-		this.Ennemies.add(Red2);
-		this.Ennemies.add(Blue2);
-		this.Ennemies.add(Green2);
-	
-
-		this.MoonParticules = Application.Game.add.physicsGroup();
-		var PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
-		this.MoonParticules.add(PMoon);
-		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
-		this.MoonParticules.add(PMoon);
-		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
-		this.MoonParticules.add(PMoon);
-		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
-		this.MoonParticules.add(PMoon);
-		PMoon = new ParticuleMoon(Application.Game,-10,-10,Math.random() * (2 - 0.5) + 0.5);
-		this.MoonParticules.add(PMoon);
 		
 
 	},

@@ -29,7 +29,7 @@ function Shuriken(_bulletGroup)
       Application.Game.time.events.add(Phaser.Timer.SECOND * 1, function () {_self.canShoot = true;}, this);
       var bullet = Application.Game.add.sprite(_Player.x, _Player.y, "Shuriken");
       bullet.anchor.setTo(0.5);
-      bullet.scale.setTo(0.3);
+      bullet.scale.setTo(0.4);
       Application.Game.physics.arcade.enable(bullet);
       bullet.update = function () 
       {

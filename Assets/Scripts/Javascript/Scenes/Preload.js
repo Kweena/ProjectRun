@@ -97,7 +97,7 @@ Application.Preload.prototype =
 
 	    //Weapon Loading
 	    this.game.load.image('ShurikenBtn','Assets/Graphics/Weapons/ShurikenBtn.png');
-	    this.game.load.image('Shuriken','Assets/Graphics/Weapons/Shuriken.png');
+	    this.game.load.image('Shuriken','Assets/Graphics/Weapons/Shuriken2.png');
 
 	    //Debug Loading
 	    this.game.load.image('DebugUp','Assets/Graphics/Debug/DebugUp.png');

@@ -74,7 +74,7 @@ function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
   { 
     _self.position.x = Math.random() * 500 + Application.Game.width;
     _self.position.y = Math.random() * Application.Game.height ;
-    _self.position.y = Application.Game.math.clamp(_self.position.y, 0 + 80, Application.Game.height - 80);
+    _self.position.y = Application.Game.math.clamp(_self.position.y, 0 + 150, Application.Game.height - 150);
   }
 
 
