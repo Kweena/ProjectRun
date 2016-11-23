@@ -90,6 +90,7 @@ Application.Preload.prototype =
 	    this.game.load.image('NoLife','Assets/Graphics/UI/life_empty.png');
 	    this.game.load.image('Weapon','Assets/Graphics/UI/star.png');
 	    this.game.load.image('BlackUI','Assets/Graphics/UI/black_UI.png');
+	    this.game.load.image('Stage','Assets/Graphics/UI/stage.png');
 	    
 
 	    //Weapon Loading
