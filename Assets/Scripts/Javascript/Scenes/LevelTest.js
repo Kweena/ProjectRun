@@ -45,17 +45,17 @@ Application.LevelTest.prototype = {
 		var Red = new Tank(Application.Game,-10,-10);
 		var Blue = new Ranger(Application.Game,-10,-10,this.Ennemies);
 		var Green = new Barrel(Application.Game,-10,-10);
-		// var Red2 = new Girl(Application.Game,-10,-10,"Mob_Spike",Math.random() * (2 - 0.5) + 0.5);
-		// var Blue2 = new Girl(Application.Game,-10,-10,"Mob_Noodle",Math.random() * (2 - 0.5) + 0.5);
-		// var Green2 = new Girl(Application.Game,-10,-10,"Mob_Barrel",0);
+		var Red2 = new Tank(Application.Game,-10,-10);
+		var Blue2 = new Ranger(Application.Game,-10,-10,this.Ennemies);
+		var Green2 = new Barrel(Application.Game,-10,-10);
 
 		
 		this.Ennemies.add(Red);
 		this.Ennemies.add(Blue);
 		this.Ennemies.add(Green);
-		// this.Ennemies.add(Red2);
-		// this.Ennemies.add(Blue2);
-		// this.Ennemies.add(Green2);
+		this.Ennemies.add(Red2);
+		this.Ennemies.add(Blue2);
+		this.Ennemies.add(Green2);
 	
 
 		this.MoonParticules = Application.Game.add.physicsGroup();
