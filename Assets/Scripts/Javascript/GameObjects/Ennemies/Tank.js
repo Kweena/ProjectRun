@@ -46,7 +46,7 @@ function Tank(_game,_x,_y,_sprite,_speed)
   { 
     _self.position.x = Math.random() * 500 + Application.Game.width;
     _self.position.y = Math.random() * Application.Game.height ;
-    Application.Game.math.clamp(_self.position.y, 0 + _self.height, Application.Game.height - _self.height)
+    Application.Game.math.clamp(_self.position.y, 0 + 80, Application.Game.height - 80)
   }
 
 
