@@ -80,6 +80,12 @@ Application.Preload.prototype =
 	    //this.game.load.image('City1','Assets/Graphics/Background/CityTest1.png');
 	    //this.game.load.image('City2','Assets/Graphics/Background/CityTest2.png');
 	    this.game.load.image('Background','Assets/Graphics/Background/BackgroundTest.png');
+
+	    //HUD ELEMENT
+	    this.game.load.image('Life','Assets/Graphics/UI/life_full.png');
+	    this.game.load.image('NoLife','Assets/Graphics/UI/life_empty.png');
+	    this.game.load.image('Weapon','Assets/Graphics/UI/star.png');
+	    this.game.load.image('BlackUI','Assets/Graphics/UI/black_UI.png');
 	    
 
 	    //Weapon Loading
@@ -119,6 +125,6 @@ Application.Preload.prototype =
   		console.log("create Preload");
 
   		// go to another State
-		this.state.start("TitleScene");
+		this.state.start("LevelTest");
 	}
 }
