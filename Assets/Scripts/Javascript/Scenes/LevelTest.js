@@ -40,14 +40,16 @@ Application.LevelTest.prototype = {
 
 		Application.Player = this.Player = new Yama(Application.Game,225,300,s,s);
 
+		this.Ennemies = Application.Game.add.physicsGroup();
+
 		var Red = new Tank(Application.Game,-10,-10);
-		var Blue = new Ranger(Application.Game,-10,-10);
+		var Blue = new Ranger(Application.Game,-10,-10,this.Ennemies);
 		var Green = new Barrel(Application.Game,-10,-10);
 		// var Red2 = new Girl(Application.Game,-10,-10,"Mob_Spike",Math.random() * (2 - 0.5) + 0.5);
 		// var Blue2 = new Girl(Application.Game,-10,-10,"Mob_Noodle",Math.random() * (2 - 0.5) + 0.5);
 		// var Green2 = new Girl(Application.Game,-10,-10,"Mob_Barrel",0);
 
-		this.Ennemies = Application.Game.add.physicsGroup();
+		
 		this.Ennemies.add(Red);
 		this.Ennemies.add(Blue);
 		this.Ennemies.add(Green);

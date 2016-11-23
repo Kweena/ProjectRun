@@ -1,7 +1,6 @@
-function Ranger(_game,_x,_y,_sprite,_speed)
+function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
 {
   
-
   /*****************************
            Properties
   ******************************/
@@ -16,9 +15,12 @@ function Ranger(_game,_x,_y,_sprite,_speed)
 
   _game.physics.arcade.enable(_self);
 
+  _self.ennemiesGroup = _ennemiesGroup;
+
   // resize collider
   _self.body.setSize(50, 50, 30, 35);
 
+  setInterval(function(){ _self.shoot(); }, 3500);
 
   /*****************************
             Method
@@ -41,11 +43,36 @@ function Ranger(_game,_x,_y,_sprite,_speed)
     
   }
 
+  _self.shoot = function () 
+  {
+    var bullet = _game.add.sprite(_self.position.x, _self.position.y + 10, "ChopStick");
+    _self.ennemiesGroup.add(bullet);
+    bullet.body.setSize(50, 10, -40, 0);
+
+    bullet.update = function()
+    {
+      this.position.x -= 15 + Application.Player.Speed;
+  
+      if (this.position.x + this.width < 0) 
+      {
+        this.destroy();
+      }
+      if (Application.debugMode)
+      {
+          Application.Game.debug.body(this);
+      }
+    }
+    bullet.Restart = function()
+    {
+      this.destroy();
+    }
+  }
+
   _self.Restart = function()
   { 
     _self.position.x = Math.random() * 500 + Application.Game.width;
     _self.position.y = Math.random() * Application.Game.height ;
-    Application.Game.math.clamp(_self.position.y, 0 + _self.height * 0.5, Application.Game.height - _self.height * 0.5)
+    Application.Game.math.clamp(_self.position.y, 0 + _self.height * 0.5, Application.Game.height - _self.height * 0.5);
   }
 
 

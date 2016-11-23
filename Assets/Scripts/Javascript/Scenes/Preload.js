@@ -69,6 +69,7 @@ Application.Preload.prototype =
 	    //enemy
 	    this.game.load.image('Mob_Spike','Assets/Graphics/Enemy/eny101_01.png');
 	    this.game.load.image('Mob_Noodle','Assets/Graphics/Enemy/eny102_01.png');
+	    this.game.load.image('ChopStick','Assets/Graphics/Enemy/eny102_02.png');
 	    this.game.load.image('Mob_Barrel','Assets/Graphics/Item/itm101_01.png');
 	    
 

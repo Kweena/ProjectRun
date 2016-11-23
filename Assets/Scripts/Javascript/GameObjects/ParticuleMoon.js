@@ -15,7 +15,10 @@ function ParticuleMoon(_game,_x,_y,_speed)
   // resize collider
   _self.body.setSize(16, 16, 25, 32);
  
-
+  // Glow
+  /*_self.tween = Application.Game.add.tween(_self).to({ alpha: 0 }, 200, "Linear");
+  _self.tween.yoyo(true,100);
+  _self.tween.start();*/
 
   var speed = _speed;
 
