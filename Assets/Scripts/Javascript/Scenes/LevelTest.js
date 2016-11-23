@@ -33,6 +33,8 @@ Application.LevelTest.prototype = {
 		this.life[5] = Application.Game.add.sprite(this.game.world.centerX - 840, this.game.world.centerY - 500, 'Life');
 		this.life[5].scale.setTo(1.5,1.5);
 		//this.life.scale.setTo(32,32);
+
+		this.stage = Application.Game.add.sprite(this.game.world.centerX + 800, this.game.world.centerY - 500, 'Stage');
 		
 		this.nbrWeapon = this.game.add.text(this.game.world.centerX - 750,this.game.world.centerY - 500, "∞",{ font: "40px Merriweather", fill: "#fff",align:"left"});
 		this.weapon = Application.Game.add.sprite(this.world.centerX - 810, this.game.world.centerY - 490,'Weapon');
