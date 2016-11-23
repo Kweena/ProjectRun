@@ -10,6 +10,8 @@ Application.LevelTest.prototype = {
 		this.Bullets = Application.Game.add.physicsGroup();
 		var s = new Shuriken(this.Bullets);
 
+		this.maxParticules = 50;
+
 		Application.Player = this.Player = new Yama(Application.Game,225,300,s,s);
 
 		this.Ennemies = Application.Game.add.physicsGroup();
@@ -76,7 +78,6 @@ Application.LevelTest.prototype = {
 		this.blackUI5 = Application.Game.add.sprite(Application.Game.width,0,'BlackUI');
 		this.blackUI5.scale.setTo(-3,3);
 
-console.log(this.blackUI3)
 
 		//futur HUD sans element graphique ( très très sommaire, j'doit vraiment revoir nos cours etc -_- )
 		//var Light = 0;
@@ -108,8 +109,6 @@ console.log(this.blackUI3)
 
 
 		// Particules Bar
-
-		this.maxParticules = 30;
 
 		this.particulesBar = Application.Game.add.sprite(-200, -200,'Bar');
 		this.particulesBar.scale.setTo(3,3);
@@ -181,6 +180,7 @@ console.log(this.blackUI3)
 		Player.GetParticules();
 		this.cropRect.width = 3 + (((this.particulesBarContainer.width / this.particulesBarContainer.scale.x - 6)/this.maxParticules) * Player.MoonParticules);
 		this.particulesBar.updateCrop();
+		if (Player.MoonParticules == this.maxParticules) {Application.Game.state.start("TitleScene");}
 		MoonParticule.Restart();
 	}
 

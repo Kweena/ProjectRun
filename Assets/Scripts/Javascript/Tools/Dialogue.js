@@ -49,7 +49,6 @@ function Dialogue(_x, _y, _charaDial, _text)
 	_self.FinishLine = function()
 	{
 		_self.repeat.timer.remove(_self.repeat);
-		console.log(_self.repeat)
 		_self.window = _self.content[_self.index];
 	    _self.dialogue.setText(_self.window);
 		_self.endedWindow = true;

@@ -112,7 +112,7 @@ Application.Preload.prototype =
 
 	    if (Application.touchEnabled == false) 
 	    {
-	    	console.log(Application)
+	    	
 	    	if (!Application.Game.device.desktop) 
 	    	{
 	    		Application.touchEnabled = true

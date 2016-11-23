@@ -2,7 +2,7 @@ Application.Options = function(){};
 Application.Options.prototype = {
 	create: function()
 	{ 
-		console.log(this);
+		
 
 		this.tween = null;
 

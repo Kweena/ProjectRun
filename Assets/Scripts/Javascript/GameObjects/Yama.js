@@ -233,7 +233,7 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   _self.GetParticules = function()
   {   
       _self.MoonParticules++;
-      _self.Speed += 0.075;
+      _self.Speed += 0.1;
       //console.log(_self.MoonParticules);
   }
 
