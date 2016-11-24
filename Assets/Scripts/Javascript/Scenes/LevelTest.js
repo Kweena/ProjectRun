@@ -10,7 +10,7 @@ Application.LevelTest.prototype = {
 		this.Bullets = Application.Game.add.physicsGroup();
 		var s = new Shuriken(this.Bullets);
 
-		this.maxParticules = 50;
+		this.maxParticules = 20;
 
 		Application.Player = this.Player = new Yama(Application.Game,225,300,s,s);
 
