@@ -42,11 +42,17 @@ Application.LevelTest.prototype = {
 		this.ground4.frame = 6;
 		this.ground4.scale.setTo(2.1);
 
+		this.ground5 = Application.Game.add.sprite( 2*this.ground1.width , Application.Game.height - 63,'Ground1');
+		this.ground5.smoothed = false;
+		this.ground5.anchor.y = 1
+		this.ground5.frame = 7;
+		this.ground5.scale.setTo(2.1);
+
 
 		this.Bullets = Application.Game.add.physicsGroup();
 		var s = new Shuriken(this.Bullets);
 
-		this.maxParticules = 20;
+		this.maxParticules = 30;
 
 		Application.Player = this.Player = new Yama(Application.Game,225,300,s,s);
 
@@ -191,10 +197,11 @@ Application.LevelTest.prototype = {
 		this.ground1.position.x -= this.Player.Speed;	
 		this.ground2.position.x -= this.Player.Speed;
 		this.ground3.position.x -= this.Player.Speed;
-		this.ground4.position.x -= this.Player.Speed;	
+		this.ground4.position.x -= this.Player.Speed;
+		this.ground5.position.x -= this.Player.Speed;	
 		if (this.ground1.position.x < -this.ground1.width) 
 		{
-			this.ground1.position.x = this.ground4.position.x + this.ground1.width;
+			this.ground1.position.x = this.ground5.position.x + this.ground1.width;
 		}
 		if (this.ground2.position.x < -this.ground2.width) 
 		{
@@ -207,6 +214,10 @@ Application.LevelTest.prototype = {
 		if (this.ground4.position.x < -this.ground4.width) 
 		{
 			this.ground4.position.x = this.ground3.position.x + this.ground1.width;
+		}
+		if (this.ground5.position.x < -this.ground5.width) 
+		{
+			this.ground5.position.x = this.ground4.position.x + this.ground1.width;
 		}
 
 		Application.Game.physics.arcade.collide(this.Player, this.Ennemies, this.collisionPlayerEnnemies, null, this);

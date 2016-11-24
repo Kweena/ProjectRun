@@ -10,7 +10,8 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   var _self = _game.add.sprite(_x, _y, "Yama");
 
   _self.MoonParticules = 0;
-  _self.Speed = 3;
+  _self.Speed = 6;
+  _self.SpeedIncrease = 0.2;
   _self.Invulnerability = false;
   
   _self.VerticalMoveSpeed = 4;
@@ -233,7 +234,7 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   _self.GetParticules = function()
   {   
       _self.MoonParticules++;
-      _self.Speed += 0.1;
+      _self.Speed += _self.SpeedIncrease;
       //console.log(_self.MoonParticules);
   }
 
