@@ -13,7 +13,7 @@ var Application = {
 	},
 	Game : null,
 	Juicy : null,
-	debugMode: true,
+	debugMode: false,
 	// Debug for touch button
 	debugTouch: false,
 	godMode: false,

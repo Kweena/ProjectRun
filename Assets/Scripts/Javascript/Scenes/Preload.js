@@ -83,7 +83,12 @@ Application.Preload.prototype =
 	    //Background Loading
 	    //this.game.load.image('City1','Assets/Graphics/Background/CityTest1.png');
 	    //this.game.load.image('City2','Assets/Graphics/Background/CityTest2.png');
-	    this.game.load.image('Background','Assets/Graphics/Background/BackgroundTest.png');
+	    //this.game.load.image('Background','Assets/Graphics/Background/BackgroundTest.png');
+	    this.game.load.image('Background','Assets/Graphics/Background/bcg101_01.png');
+	    
+	    //Shadows
+	    this.game.load.spritesheet('Ground1','Assets/Graphics/Background/bcg102_01.png',512,50,8);
+	    this.game.load.spritesheet('Ground2','Assets/Graphics/Background/bcg103_01.png',512,50,8);
 
 	    //HUD ELEMENT
 	    this.game.load.image('Life','Assets/Graphics/UI/life_full.png');

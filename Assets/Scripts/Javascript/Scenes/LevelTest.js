@@ -2,10 +2,46 @@ Application.LevelTest = function(){};
 Application.LevelTest.prototype = {
 	create: function()
 	{ 
+		Application.Game.stage.smoothed = false;
+
 		Application.Game.physics.startSystem(Phaser.Physics.ARCADE);
 		console.log('Starting','LevelTest');
+		var cr = new Phaser.Rectangle(0, 0, 0, 49);
+
 		this.background1 = Application.Game.add.sprite(0,-0,'Background');
-		this.background2 = Application.Game.add.sprite(this.background1.width,-0,'Background');
+		this.background1.smoothed = false;
+		this.background1.scale.setTo(2.1);
+		this.background2 = Application.Game.add.sprite( this.background1.width ,-0,'Background');
+		this.background2.smoothed = false;
+		this.background2.scale.setTo(2.1);
+		this.background3 = Application.Game.add.sprite( 2*(this.background1.width) ,-0,'Background');
+		this.background3.smoothed = false;
+		this.background3.scale.setTo(2.1);
+
+		this.ground1 = Application.Game.add.sprite( 0 , Application.Game.height - 63,'Ground1');
+		this.ground1.smoothed = false;
+		this.ground1.anchor.y = 1
+		this.ground1.frame = 3;
+		this.ground1.scale.setTo(2.1);
+
+		this.ground2 = Application.Game.add.sprite( this.ground1.width , Application.Game.height - 63,'Ground1');
+		this.ground2.smoothed = false;
+		this.ground2.anchor.y = 1
+		this.ground2.frame = 4;
+		this.ground2.scale.setTo(2.1);
+
+		this.ground3 = Application.Game.add.sprite( 2*this.ground1.width , Application.Game.height - 63,'Ground1');
+		this.ground3.smoothed = false;
+		this.ground3.anchor.y = 1
+		this.ground3.frame = 5;
+		this.ground3.scale.setTo(2.1);
+
+		this.ground4 = Application.Game.add.sprite( 2*this.ground1.width , Application.Game.height - 63,'Ground1');
+		this.ground4.smoothed = false;
+		this.ground4.anchor.y = 1
+		this.ground4.frame = 6;
+		this.ground4.scale.setTo(2.1);
+
 
 		this.Bullets = Application.Game.add.physicsGroup();
 		var s = new Shuriken(this.Bullets);
@@ -134,15 +170,43 @@ Application.LevelTest.prototype = {
 
 	update : function()
 	{
+		// background Move
 		this.background1.position.x -= this.Player.Speed;	
-		this.background2.position.x -= this.Player.Speed;	
+		this.background2.position.x -= this.Player.Speed;
+		this.background3.position.x -= this.Player.Speed;	
 		if (this.background1.position.x < -this.background1.width) 
 		{
-			this.background1.position.x = this.background2.position.x + this.background2.width;
+			this.background1.position.x = this.background3.position.x + this.background1.width;
 		}
 		if (this.background2.position.x < -this.background2.width) 
 		{
 			this.background2.position.x = this.background1.position.x + this.background1.width;
+		}
+		if (this.background3.position.x < -this.background3.width) 
+		{
+			this.background3.position.x = this.background2.position.x + this.background1.width;
+		}
+
+		//Shadow Move
+		this.ground1.position.x -= this.Player.Speed;	
+		this.ground2.position.x -= this.Player.Speed;
+		this.ground3.position.x -= this.Player.Speed;
+		this.ground4.position.x -= this.Player.Speed;	
+		if (this.ground1.position.x < -this.ground1.width) 
+		{
+			this.ground1.position.x = this.ground4.position.x + this.ground1.width;
+		}
+		if (this.ground2.position.x < -this.ground2.width) 
+		{
+			this.ground2.position.x = this.ground1.position.x + this.ground1.width;
+		}
+		if (this.ground3.position.x < -this.ground3.width) 
+		{
+			this.ground3.position.x = this.ground2.position.x + this.ground1.width;
+		}
+		if (this.ground4.position.x < -this.ground4.width) 
+		{
+			this.ground4.position.x = this.ground3.position.x + this.ground1.width;
 		}
 
 		Application.Game.physics.arcade.collide(this.Player, this.Ennemies, this.collisionPlayerEnnemies, null, this);
