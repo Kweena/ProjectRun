@@ -87,6 +87,18 @@ Application.LevelTest.prototype = {
 		this.MoonParticules.add(PMoon);
 
 		/*********************************** 
+	    			Effects
+	    ************************************/
+
+		this.Effect1 = Application.Game.add.sprite(0,0,'dark_corner');
+		this.Effect1.width = 1920;
+		this.Effect1.height = 1080;
+
+		this.Effect2 = Application.Game.add.sprite(0,0,'darkness');
+		this.Effect2.width = 1920;
+		this.Effect2.height = 1080;
+
+		/*********************************** 
 	    			HUD Start
 	    ************************************/
 	    
@@ -257,6 +269,8 @@ Application.LevelTest.prototype = {
 	getParticules : function (Player, MoonParticule) 
 	{
 		Player.GetParticules();
+		this.Effect1.alpha = (this.maxParticules - Player.MoonParticules) / this.maxParticules;
+		this.Effect2.alpha = (this.maxParticules - Player.MoonParticules) / this.maxParticules;
 		this.cropRect.width = 3 + (((this.particulesBarContainer.width / this.particulesBarContainer.scale.x - 6)/this.maxParticules) * Player.MoonParticules);
 		this.particulesBar.updateCrop();
 		if (Player.MoonParticules == this.maxParticules) 

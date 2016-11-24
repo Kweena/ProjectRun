@@ -9,6 +9,7 @@ function MonsterModel(_game,_x,_y,_sprite,_speed)
   // create a Phaser Sprite Object
   var _self = _game.add.sprite(_x, _y, _sprite);
       _self.anchor.setTo(0.5,0.5);
+      _self.scale.setTo(2,2);
 
   var speed = _speed;
 

@@ -99,6 +99,9 @@ Application.Preload.prototype =
 	    this.game.load.image('Bar','Assets/Graphics/UI/bar.png');
 	    this.game.load.image('BarContainer','Assets/Graphics/UI/barContainer.png');
 	    
+	    //Effect
+	    this.game.load.image('dark_corner','Assets/Graphics/SFX/eff001_01.png');
+	    this.game.load.image('darkness','Assets/Graphics/SFX/eff002_01_darkness.png');
 
 	    //Weapon Loading
 	    this.game.load.image('ShurikenBtn','Assets/Graphics/Weapons/ShurikenBtn.png');
