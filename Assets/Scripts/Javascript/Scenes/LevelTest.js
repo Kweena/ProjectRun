@@ -10,7 +10,7 @@ Application.LevelTest.prototype = {
 		this.Bullets = Application.Game.add.physicsGroup();
 		var s = new Shuriken(this.Bullets);
 
-		this.maxParticules = 50;
+		this.maxParticules = 5;
 
 		Application.Player = this.Player = new Yama(Application.Game,225,300,s,s);
 
@@ -162,7 +162,11 @@ Application.LevelTest.prototype = {
 	{
 		Player.Hitted();
 		this.life[Player.Life].loadTexture('NoLife');
-		if (Player.Life == 0) {Application.Game.state.start("TitleScene");}
+		if (Player.Life == 0) 
+		{
+			Application.Game.world.removeAll();
+			Application.Game.state.start("GameOverScene");
+		}
 		Ennemy.Restart();
 	},
 	collisionBulletEnnemies : function (Bullet, Ennemy) 
@@ -180,7 +184,11 @@ Application.LevelTest.prototype = {
 		Player.GetParticules();
 		this.cropRect.width = 3 + (((this.particulesBarContainer.width / this.particulesBarContainer.scale.x - 6)/this.maxParticules) * Player.MoonParticules);
 		this.particulesBar.updateCrop();
-		if (Player.MoonParticules == this.maxParticules) {Application.Game.state.start("TitleScene");}
+		if (Player.MoonParticules == this.maxParticules) 
+		{
+			Application.Game.world.removeAll();
+			Application.Game.state.start("VictoryScene");
+		}
 		MoonParticule.Restart();
 	}
 

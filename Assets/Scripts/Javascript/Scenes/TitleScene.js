@@ -49,6 +49,7 @@ Application.TitleScene.prototype = {
 
 function StartGame (item)
 {
+	Application.Game.state.add("LevelTest", Application.LevelTest);
 	this.state.start("LevelTest");
 }
 function StartOptions (item)
