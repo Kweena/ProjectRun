@@ -7,7 +7,7 @@ Application.VictoryScene.prototype = {
 		this.background.width = Application.Game.world.width;
 		this.background.height = Application.Game.world.height;
 
-		this.text = this.game.add.text(this.game.world.centerX , this.game.world.centerY - 500, "Victory", { font: "50px Merriweather", fill: "#E6007E", align: "left" });
+		this.text = this.game.add.text(this.game.world.centerX + 200 , this.game.world.centerY + 200, "VICTORY", { font: "150px Merriweather", fill: "#E6007E", align: "left" });
 		this.text.anchor.x = 0.5;
 
 	 	this.victoryToMain = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 450, "Back To Main Menu", { font: "50px Merriweather", fill: "#E6007E", align: "left" });

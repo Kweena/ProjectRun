@@ -58,7 +58,7 @@ Application.Preload.prototype =
 	    	chargement des assets
 	    ************************************/
 	    //Title Load
-	    this.game.load.image('Title','Assets/Graphics/Preload/logo.png');
+	    this.game.load.image('logo','Assets/Graphics/Preloader/logo.png');
 
 
 	    //Chara Loading
