@@ -11,7 +11,7 @@ function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
   var _self = _game.add.sprite(_x, _y, _sprite);
       _self.smothed = false;
       _self.anchor.setTo(0.5,0.5);
-      _self.scale.setTo(2,2);
+      _self.scale.setTo(1.8,1.8);
 
   var speed = _speed || 0.75;
 
@@ -50,7 +50,7 @@ function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
     var bullet = _game.add.sprite(_self.position.x, _self.position.y + 10, "ChopStick");
     bullet.smothed = false;
     _self.ennemiesGroup.add(bullet);
-    bullet.scale.setTo(2,2);
+    bullet.scale.setTo(1.8,1.8);
     bullet.body.setSize(50, 10, -50, 0);
 
     setTimeout(function(){ _self.shoot(); }, Math.random() * 3000 + 1000);
