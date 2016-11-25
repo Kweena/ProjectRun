@@ -18,6 +18,12 @@ Application.LevelTest.prototype = {
 		this.background3.smoothed = false;
 		this.background3.scale.setTo(2.1);
 
+		this.ground1Elem = Application.Game.add.sprite( 2000 , Application.Game.height - 95,'Ground1Elem');
+		this.ground1Elem.smoothed = false;
+		this.ground1Elem.anchor.y = 1
+		this.ground1Elem.frame = 0;
+		this.ground1Elem.scale.setTo(2.1);
+
 		this.ground1 = Application.Game.add.sprite( 0 , Application.Game.height - 63,'Ground1');
 		this.ground1.smoothed = false;
 		this.ground1.anchor.y = 1
@@ -47,6 +53,8 @@ Application.LevelTest.prototype = {
 		this.ground5.anchor.y = 1
 		this.ground5.frame = 7;
 		this.ground5.scale.setTo(2.1);
+
+		
 
 
 		this.Bullets = Application.Game.add.physicsGroup();
@@ -205,7 +213,7 @@ Application.LevelTest.prototype = {
 			this.background3.position.x = this.background2.position.x + this.background1.width;
 		}
 
-		//Shadow Move
+		//Ground Move
 		this.ground1.position.x -= this.Player.Speed;	
 		this.ground2.position.x -= this.Player.Speed;
 		this.ground3.position.x -= this.Player.Speed;
@@ -230,6 +238,13 @@ Application.LevelTest.prototype = {
 		if (this.ground5.position.x < -this.ground5.width) 
 		{
 			this.ground5.position.x = this.ground4.position.x + this.ground1.width;
+		}
+
+		this.ground1Elem.position.x -= this.Player.Speed;
+		if (this.ground1Elem.position.x < -this.ground1Elem.width) 
+		{
+			this.ground1Elem.position.x = Application.Game.width + 300 + Math.random()* 500;
+			this.ground1Elem.frame = Math.floor(Math.random()*4);
 		}
 
 		Application.Game.physics.arcade.collide(this.Player, this.Ennemies, this.collisionPlayerEnnemies, null, this);

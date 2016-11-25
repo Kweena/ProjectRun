@@ -88,6 +88,7 @@ Application.Preload.prototype =
 	    
 	    //Shadows
 	    this.game.load.spritesheet('Ground1','Assets/Graphics/Background/bcg102_01.png',512,50,8);
+	    this.game.load.spritesheet('Ground1Elem','Assets/Graphics/Background/bcg102_02.png',140,90,4);
 	    this.game.load.spritesheet('Ground2','Assets/Graphics/Background/bcg103_01.png',512,50,8);
 
 	    //HUD ELEMENT
