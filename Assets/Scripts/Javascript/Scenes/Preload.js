@@ -58,7 +58,7 @@ Application.Preload.prototype =
 	    	chargement des assets
 	    ************************************/
 	    //Title Load
-	    this.game.load.image('Title','Assets/Graphics/Background/TitleBackground.png');
+	    this.game.load.image('Title','Assets/Graphics/Preload/logo.png');
 
 
 	    //Chara Loading
@@ -137,6 +137,6 @@ Application.Preload.prototype =
   		console.log("create Preload");
 
   		// go to another State
-		this.state.start("LevelTest");
+		this.state.start("TitleScene");
 	}
 }

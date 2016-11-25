@@ -9,7 +9,7 @@ Application.Splash.prototype =
 	preload: function()
 	{
 		console.log("Preload Splash")        
-        this.load.image("logo","Assets/Graphics/Preloader/logo_yamete.jpg");
+        this.load.image("logo","Assets/Graphics/Preloader/logo.png");
         this.load.image("loading","Assets/Graphics/Preloader/preloader-bar.png");  
 
 	},
@@ -22,9 +22,9 @@ Application.Splash.prototype =
 		this.scale.pageAlignVertically = true;
 		//console.log(this.scale)
 		this.game.stage.backgroundColor = "#FFFFFF";
-		var image = this.add.image(Application.Game.world.width / 2, Application.Game.world.height / 2, 'logo');
-		image.scale.setTo(2.2);
-		image.anchor.setTo(0.5,0.5);
+		var image = this.add.image(Application.Game.world.width, Application.Game.world.height, 'logo');
+		// image.scale.setTo(2.2);
+		image.anchor.setTo(1,1);
 		image.alpha = 0;
 
 		// le splash screen a été créé on peu lancer le preload
