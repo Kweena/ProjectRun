@@ -8,7 +8,7 @@ Application.GameOverScene.prototype = {
 		this.background.width = Application.Game.world.width;
 		this.background.height = Application.Game.world.height;
 
-		this.text = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 350, "Game Over", { font: "150px Merriweather", fill: "#E6007E", align: "left" });
+		this.text = this.game.add.text(this.game.world.centerX + 330 , this.game.world.centerY + 200, "GAME OVER", { font: "150px Merriweather", fill: "#E6007E", align: "left" });
 		this.text.anchor.x = 0.5;
 
 	 	this.gameOverToMain = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 450, "Back To Main Menu", { font: "50px Merriweather", fill: "#E6007E", align: "left" });

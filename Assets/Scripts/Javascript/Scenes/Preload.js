@@ -137,6 +137,6 @@ Application.Preload.prototype =
   		console.log("create Preload");
 
   		// go to another State
-		this.state.start("VictoryScene");
+		this.state.start("TitleScene");
 	}
 }
