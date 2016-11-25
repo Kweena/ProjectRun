@@ -20,7 +20,7 @@ function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
   _self.ennemiesGroup = _ennemiesGroup;
 
   // resize collider
-  _self.body.setSize(50, 50, 60, 70);
+  _self.body.setSize(50, 50, 54, 63);
 
   setTimeout(function(){ _self.shoot(); }, Math.random() * 3000 + 1000);
 
@@ -51,7 +51,7 @@ function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
     bullet.smothed = false;
     _self.ennemiesGroup.add(bullet);
     bullet.scale.setTo(1.8,1.8);
-    bullet.body.setSize(50, 10, -50, 0);
+    bullet.body.setSize(50, 7, -50, 0);
 
     setTimeout(function(){ _self.shoot(); }, Math.random() * 3000 + 1000);
 

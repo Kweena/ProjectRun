@@ -20,7 +20,7 @@ function Tank(_game,_x,_y,_sprite,_speed)
   _game.physics.arcade.enable(_self);
 
   // resize collider
-  _self.body.setSize(68, 68, 50, 60);
+  _self.body.setSize(68, 68, 45, 54);
 
 
   /*****************************
