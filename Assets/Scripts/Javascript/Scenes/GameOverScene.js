@@ -10,6 +10,7 @@ Application.GameOverScene.prototype = {
 
 		this.text = this.game.add.text(this.game.world.centerX + 200 , this.game.world.centerY + 200, "GAME OVER", { font: "150px Open Sans Condensed", fill: "#E6007E", align: "left" });
 		this.text.anchor.x = 0.5;
+		this.text.fontWeight = 'bold';
 
 	 	this.gameOverToMain = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 450, "Back To Main Menu", { font: "50px Open Sans Condensed", fill: "#E6007E", align: "left" });
 		this.gameOverToMain.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);

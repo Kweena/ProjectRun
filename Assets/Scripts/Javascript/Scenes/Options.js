@@ -6,45 +6,45 @@ Application.Options.prototype = {
 
 		this.tween = null;
 
-		this.background = Application.Game.add.sprite(0,0,'Title');
+		this.background = Application.Game.add.sprite(0,0,'logo');
 		this.background.width = Application.Game.world.width;
 		this.background.height = Application.Game.world.height;
 
-	 	this.up = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 90, "Up  :  " + Application.Keys.up.char, { font: "20px Merriweather", fill: "#fff", align: "left" });
+	 	this.up = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 100 + 90, "Up  :  " + Application.Keys.up.char, { font: "40px Open Sans Condensed", fill: "#E6007E", align: "left" });
 		this.up.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
 		this.up.anchor.x = 0.5;
 		this.up.inputEnabled = true;
 		this.up.events.onInputOver.add(ChangeUp,this);
 		
-		this.down = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 120, "Down  :  " + Application.Keys.down.char, { font: "20px Merriweather", fill: "#fff", align: "left" });
+		this.down = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 100 + 130, "Down  :  " + Application.Keys.down.char, { font: "40px Open Sans Condensed", fill: "#E6007E", align: "left" });
 		this.down.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
 		this.down.anchor.x = 0.5;
 		this.down.inputEnabled = true;
 		this.down.events.onInputOver.add(ChangeDown,this);
 
-		this.attack = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 150, "Attack  :  " + Application.Keys.attack.char, { font: "20px Merriweather", fill: "#fff", align: "left" });
+		this.attack = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 100 + 170, "Attack  :  " + Application.Keys.attack.char, { font: "40px Open Sans Condensed", fill: "#E6007E", align: "left" });
 		this.attack.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
 		this.attack.anchor.x = 0.5;
 		this.attack.inputEnabled = true;
 		this.attack.events.onInputOver.add(ChangeAttack,this);
 
-		this.weapon1 = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 180, "Weapon 1  :  " + Application.Keys.weapon1.char, { font: "20px Merriweather", fill: "#fff", align: "left" });
+		this.weapon1 = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 100 + 210, "Weapon 1  :  " + Application.Keys.weapon1.char, { font: "40px Open Sans Condensed", fill: "#E6007E", align: "left" });
 		this.weapon1.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
 		this.weapon1.anchor.x = 0.5;
 		this.weapon1.inputEnabled = true;
 		this.weapon1.events.onInputOver.add(ChangeWeapon1,this);
 
-		this.weapon2 = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 210, "Weapon 2  :  " + Application.Keys.weapon2.char, { font: "20px Merriweather", fill: "#fff", align: "left" });
+		this.weapon2 = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 100 + 250, "Weapon 2  :  " + Application.Keys.weapon2.char, { font: "40px Open Sans Condensed", fill: "#E6007E", align: "left" });
 		this.weapon2.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
 		this.weapon2.anchor.x = 0.5;
 		this.weapon2.inputEnabled = true;
 		this.weapon2.events.onInputOver.add(ChangeWeapon2,this);
 
-		this.attack = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 280, "BACK TO MENU", { font: "35px Merriweather", fill: "#fff", align: "left" });
-		this.attack.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
-		this.attack.anchor.x = 0.5;
-		this.attack.inputEnabled = true;
-		this.attack.events.onInputOver.add(GoToMenu,this);
+	 	this.backToMain = this.game.add.text(this.game.world.centerX , this.game.world.centerY + 450, "Back To Main Menu", { font: "50px Open Sans Condensed", fill: "#E6007E", align: "left" });
+		this.backToMain.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
+		this.backToMain.anchor.x = 0.5;
+		this.backToMain.inputEnabled = true;
+		this.backToMain.events.onInputOver.add(GoToMenu,this);
 		
 	},
 
@@ -66,7 +66,7 @@ function GoToMenu()
 	this.state.start("TitleScene");
 }
 
-var _BlinkingColor = "#1FFA5D";
+var _BlinkingColor = "#000";
 
 function ChangeUp ()
 {
@@ -82,6 +82,7 @@ function ChangeUp ()
 }
 function ChangeUpKey(e) 
 {
+
 	this.up.text = "Up  :  " + e.key.toUpperCase();
 	Application.Keys.up.keyCode = e.keyCode;
 	Application.Keys.up.char = e.key.toUpperCase();; 
@@ -89,7 +90,7 @@ function ChangeUpKey(e)
 	Application.Game.input.keyboard.addCallbacks(this, function () {});
 	this.tween.stop();
 	this.up.alpha = 1;
-	this.up.fill = "#fff";
+	this.up.fill = "#E6007E";
 
 	// Save Key to localStorage
 	localStorage.setItem('Keys',JSON.stringify(Application.Keys));
@@ -116,7 +117,7 @@ function ChangeDownKey(e)
 	Application.Game.input.keyboard.addCallbacks(this, function () {});
 	this.tween.stop();
 	this.down.alpha = 1;
-	this.down.fill = "#fff";
+	this.down.fill = "#E6007E";
 
 	// Save Key to localStorage
 	localStorage.setItem('Keys',JSON.stringify(Application.Keys));
@@ -136,14 +137,17 @@ function ChangeAttack ()
 }
 function ChangeAttackKey(e) 
 {
-	this.attack.text = "Attack  :  " + e.key.toUpperCase();
+	alert(e.key == " ");
+	var key = e.key.toUpperCase();
+	if (e.key == " ") {key = "SPACEBAR"};
+	this.attack.text = "Attack  :  " + key;
 	Application.Keys.attack.keyCode = e.keyCode;
-	Application.Keys.attack.char = e.key.toUpperCase();; 
+	Application.Keys.attack.char = key; 
 
 	Application.Game.input.keyboard.addCallbacks(this, function () {});
 	this.tween.stop();
 	this.attack.alpha = 1;
-	this.attack.fill = "#fff";
+	this.attack.fill = "#E6007E";
 
 	// Save Key to localStorage
 	localStorage.setItem('Keys',JSON.stringify(Application.Keys));
@@ -170,7 +174,7 @@ function ChangeWeapon1Key(e)
 	Application.Game.input.keyboard.addCallbacks(this, function () {});
 	this.tween.stop();
 	this.weapon1.alpha = 1;
-	this.weapon1.fill = "#fff";
+	this.weapon1.fill = "#E6007E";
 
 	// Save Key to localStorage
 	localStorage.setItem('Keys',JSON.stringify(Application.Keys));
@@ -197,7 +201,7 @@ function ChangeWeapon2Key(e)
 	Application.Game.input.keyboard.addCallbacks(this, function () {});
 	this.tween.stop();
 	this.weapon2.alpha = 1;
-	this.weapon2.fill = "#fff";
+	this.weapon2.fill = "#E6007E";
 
 	// Save Key to localStorage
 	localStorage.setItem('Keys',JSON.stringify(Application.Keys));
