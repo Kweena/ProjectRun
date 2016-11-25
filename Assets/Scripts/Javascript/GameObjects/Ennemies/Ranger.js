@@ -9,8 +9,9 @@ function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
 
   // create a Phaser Sprite Object
   var _self = _game.add.sprite(_x, _y, _sprite);
+      _self.smothed = false;
       _self.anchor.setTo(0.5,0.5);
-      //_self.scale.setTo(2,2);
+      _self.scale.setTo(2,2);
 
   var speed = _speed || 0.75;
 
@@ -19,7 +20,7 @@ function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
   _self.ennemiesGroup = _ennemiesGroup;
 
   // resize collider
-  _self.body.setSize(50, 50, 30, 35);
+  _self.body.setSize(50, 50, 60, 70);
 
   setTimeout(function(){ _self.shoot(); }, Math.random() * 3000 + 1000);
 
@@ -47,8 +48,10 @@ function Ranger(_game,_x,_y,_ennemiesGroup,_sprite,_speed)
   _self.shoot = function () 
   {
     var bullet = _game.add.sprite(_self.position.x, _self.position.y + 10, "ChopStick");
+    bullet.smothed = false;
     _self.ennemiesGroup.add(bullet);
-    bullet.body.setSize(50, 10, -40, 0);
+    bullet.scale.setTo(2,2);
+    bullet.body.setSize(50, 10, -50, 0);
 
     setTimeout(function(){ _self.shoot(); }, Math.random() * 3000 + 1000);
 

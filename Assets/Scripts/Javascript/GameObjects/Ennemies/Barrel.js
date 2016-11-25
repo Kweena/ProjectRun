@@ -10,15 +10,16 @@ function Barrel(_game,_x,_y,_sprite,_speed)
 
   // create a Phaser Sprite Object
   var _self = _game.add.sprite(_x, _y, _sprite);
+      _self.smothed = false;
       _self.anchor.setTo(0.5,0.5);
-      //_self.scale.setTo(2,2);
+      _self.scale.setTo(2,2);
 
   var speed = 0;
 
   _game.physics.arcade.enable(_self);
 
   // resize collider
-  _self.body.setSize(80, 65, 20, 35);
+  _self.body.setSize(80, 65, 40, 70);
 
 
   /*****************************

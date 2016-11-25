@@ -8,6 +8,7 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
 
   // create a Phaser Sprite Object
   var _self = _game.add.sprite(_x, _y, "Yama");
+      _self.smothed = false;
 
   _self.MoonParticules = 0;
   _self.Speed = 6;

@@ -11,15 +11,16 @@ function Tank(_game,_x,_y,_sprite,_speed)
   var _sprite = _sprite || "Mob_Spike";
 
   var _self = _game.add.sprite(_x, _y, _sprite);
+      _self.smothed = false;
       _self.anchor.setTo(0.5,0.5);
-      //_self.scale.setTo(2,2);
+      _self.scale.setTo(2,2);
 
   var speed = _speed || 0.1;
 
   _game.physics.arcade.enable(_self);
 
   // resize collider
-  _self.body.setSize(68, 68, 25, 30);
+  _self.body.setSize(68, 68, 50, 60);
 
 
   /*****************************
