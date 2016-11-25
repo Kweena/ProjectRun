@@ -15,7 +15,7 @@ function Yama(_game,_x,_y, _weapon1, _weapon2)
   _self.SpeedIncrease = 0.2;
   _self.Invulnerability = false;
   
-  _self.VerticalMoveSpeed = 4;
+  _self.VerticalMoveSpeed = 6;
 
   _self.Life = 6;
 
